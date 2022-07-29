@@ -1,6 +1,5 @@
-import logo from "./logo.svg";
 import "./App.css";
-import { Suspense, useRef } from "react";
+import { Suspense, useRef, useState } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
@@ -11,37 +10,70 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
+import { useSpring, animated, config } from "@react-spring/three";
+import me from "./Resources/imgs/me.jpg";
+import site_tech_img from "./Resources/imgs/site.png";
+import server_tech_img from "./Resources/imgs/computer.png";
+import dev_ops_tech_img from "./Resources/imgs/application.png";
 
 function App() {
+  const [active, setActive] = useState(false);
   function Model({ ...props }) {
     const group = useRef();
     const { nodes, materials } = useGLTF("/80landscape2.glb");
+
     useFrame(({ clock }) => {
       group.current.position.z = clock.getElapsedTime() / 2;
-      console.log(clock.elapsedTime);
     });
     return (
-      <group ref={group} {...props} dispose={null}>
+      <group
+        ref={group}
+        {...props}
+        dispose={null}
+        onClick={() => {
+          setActive(!active);
+        }}
+      >
         <group scale={8}>
-          <mesh geometry={nodes.Plane003.geometry} material={materials["Material.002"]} position={[0, -0.02, 0]} />
-          <mesh geometry={nodes.Plane003_1.geometry} material={materials.neon} position={[0, -0.02, 0]} />
+          <mesh geometry={nodes.Plane003_1.geometry} material={materials.neon} position={[0, 0, 0]} />
+          <mesh geometry={nodes.Plane003.geometry} material={materials["Material.002"]} position={[0, 0, 0]} />
         </group>
       </group>
     );
   }
 
+  const resume = useRef(null);
+  const contact = useRef(null);
+  const blog = useRef(null);
+  const abilities = useRef(null);
+  const about = useRef(null);
+
   return (
     <div className='App container-fluid p-0'>
-      <Navbar bg='light' expand='lg' sticky='top'>
+      <Navbar bg='light' expand='sm' sticky='top'>
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <Nav.Item className='btn btn-light'>Resume</Nav.Item>
-              <Nav.Item className='btn btn-light'>Contact me</Nav.Item>
-              <Nav.Item className='btn btn-light'>Blog</Nav.Item>
-              <Nav.Item className='btn btn-light'>Abilities</Nav.Item>
-              <Nav.Item className='btn btn-light'>About</Nav.Item>
+              <Nav.Item className='btn btn-light nav_button mx-3 resume_button'>Resume</Nav.Item>
+              <Nav.Item className='btn btn-light nav_button mx-3 '>Contact me</Nav.Item>
+              <Nav.Item className='btn btn-light nav_button mx-3 '>Blog</Nav.Item>
+              <Nav.Item
+                className='btn btn-light nav_button mx-3 '
+                onClick={() => {
+                  abilities.current?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                Abilities
+              </Nav.Item>
+              <Nav.Item
+                className='btn btn-light nav_button mx-3  '
+                onClick={() => {
+                  about.current?.scrollIntoView({ behavior: "smooth" });
+                }}
+              >
+                About
+              </Nav.Item>
             </Nav>
             <Nav pullRight className='px-5'>
               <Nav.Item className='p-2' eventKey={1} href='#'>
@@ -68,24 +100,74 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <header class='masthead bg-primary text-white text-center container-fluid w-100 d-flex align-items-center flex-column about-content p-0 '>
-        <Canvas camara={{ fov: 70, position: [0, 100, 7.2], rotation: [0, 0, 0] }}>
-          <Suspense fallback={null}>
-            <Model />
-            <OrbitControls enableZoom={false} enableDamping={false} enableRotate={true} enablePan={false} />
-          </Suspense>
+      <header className='masthead bg-primary text-white text-center container-fluid w-100 d-flex align-items-center flex-column landing-section p-0 '>
+        <Canvas camera={{ fov: 70, position: [0, 1, 8], rotation: [0, 0, 0] }}>
+          <Model />
+          <OrbitControls enableZoom={false} enableDamping={false} enableRotate={false} enablePan={false} />
+
           <EffectComposer>
-            <Bloom luminanceThreshold={0} luminanceSmoothing={10} height={300} opacity={1} />
+            <Bloom />
           </EffectComposer>
         </Canvas>
         <div className='m-auto name-section'>
-          <h1 class=' mb-0'>Mateo Covacho</h1>
+          <h1 className=' mb-0'>Mateo Covacho</h1>
           <div className=''>
-            <p className=' font-weight-light mb-0'>Software engineer</p>
+            <p className=' font-weight-light mb-0 h5'>Software engineer</p>
           </div>
         </div>
       </header>
-      <section className='about'>asdasADgh</section>
+      <section ref={about} className='about-section mx-5 row '>
+        <div className='col my-auto h-75 '>
+          <h2 className='display-3 col'>About me.</h2>
+          <p className='lead  mb-2'>I am a Mateo Covacho, a young & talented software engineer. As a natural born problem-solver I am passionate about resolving problems by approaching them through various paths & points of view.</p>
+          <div className='display-5'>A short story</div>
+          <div className='lead  mb-2'>
+            As a kid being taken to technology summer camps, I quickly found out my vocation was in technology, I jumped from tearing apart old toys for spare motors to building Lego robots and so on hopping between activities, each time getting closer to finding out what I wanted to be, until I
+            found software engineering.
+          </div>
+          <div className='display-5'>My favorite quality</div>
+          <div className='lead  mb-2'>Even tho my problem-solving skills are very important, my most crucial quality in my opinion is my initiative. It has been what has allowed me to learn so much by my own.</div>
+        </div>
+        <div className='col my-auto  d-flex-inline align-self-center  '>
+          <img src={me} className='img-fluid m-auto ' alt='img-fluid' style={{}} />
+        </div>
+      </section>
+      <section ref={abilities} className='tech-section container py-5'>
+        <h2 className='display-3'>Tech I use</h2>
+        <div className='card-group  mx-auto'>
+          <div className='card'>
+            <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
+            <div className='card-body'>
+              <h5 className='card-title'>The tech I use while building client-side applications</h5>
+              <p className='card-text'>These are, but not limited to, the tech I use to edsign & build responsive web appications.</p>
+              
+            </div>
+            <div className='card-footer'>
+              <small className='text-muted'>Footer</small>
+            </div>
+          </div>
+          <div className='card'>
+            <img src={server_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
+            <div className='card-body'>
+              <h5 className='card-title'>The tech I use for building fast and scalable backend applications</h5>
+              <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
+            </div>
+            <div className='card-footer'>
+              <small className='text-muted'>Footer</small>
+            </div>
+          </div>
+          <div className='card'>
+            <img src={dev_ops_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
+            <div className='card-body'>
+              <h5 className='card-title'>And the tech I use to facilitate my work</h5>
+              <p className='card-text'>This is the tech I use to facilitate my work building CI/CD pipelines, helping me write and test code faster.</p>
+            </div>
+            <div className='card-footer'>
+              <small className='text-muted'>Footer</small>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
   );
 }

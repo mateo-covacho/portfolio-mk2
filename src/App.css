@@ -1,5 +1,38 @@
+@font-face {
+  font-family: "Neue Montreal book";
+  src: url(./fonts/NeueMontreal/PPNeueMontreal-Free\ for\ personal\ use\ v2.4/PPNeueMontreal-Book.otf);
+  font-weight: book;
+}
+@font-face {
+  font-family: "Neue Montreal bold";
+  src: url(./fonts/NeueMontreal/PPNeueMontreal-Free\ for\ personal\ use\ v2.4/PPNeueMontreal-Bold.otf);
+  font-weight: bold;
+}
+@font-face {
+  font-family: "Neue Montreal italic";
+  src: url(./fonts/NeueMontreal/PPNeueMontreal-Free\ for\ personal\ use\ v2.4/PPNeueMontreal-Italic.otf);
+  font-weight: italic;
+}
+@font-face {
+  font-family: "Neue Montreal medium";
+  src: url(./fonts/NeueMontreal/PPNeueMontreal-Free\ for\ personal\ use\ v2.4/PPNeueMontreal-Medium.otf);
+  font-weight: medium;
+}
+@font-face {
+  font-family: "Neue Montreal SemiBolditalic";
+  src: url(./fonts/NeueMontreal/PPNeueMontreal-Free\ for\ personal\ use\ v2.4/PPNeueMontreal-SemiBolditalic.otf);
+  font-weight: SemiBolditalic;
+}
+@font-face {
+  font-family: "Neue Montreal thin";
+  src: url(./fonts/NeueMontreal/PPNeueMontreal-Free\ for\ personal\ use\ v2.4/PPNeueMontreal-Thin.otf);
+  font-weight: thin;
+}
+
 * {
   outline: 0px solid red;
+  font-family: "Neue Montreal book", sans-serif;
+  font-weight: book;
 }
 
 .app {
@@ -7,6 +40,10 @@
 }
 section {
   height: 100vh;
+}
+.resume_button {
+  border-radius: 30px;
+  background-color: #3cff00a7 !important ;
 }
 
 .nav-bar {
@@ -20,8 +57,16 @@ section {
 
   /* Rectangle 3 */
 }
+.nav_button {
+  border-radius: 0% !important;
+}
+.nav_button:hover {
+  background-color: #3cff00a7 !important ;
+  outline: none;
+  border-radius: 0%;
+}
 
-.about-content {
+.landing-section {
   height: 100vh;
 }
 
@@ -34,15 +79,18 @@ Canvas {
   z-index: 0;
 }
 
-.name-section {
-  position: absolute;
-  top: 30%;
-}
-
 .blacktext {
   color: black;
 }
 
 .mosepointer {
   cursor: pointer;
+}
+
+.name-section {
+  position: absolute;
+  top: 30%;
+}
+
+.name-section h1 {
 }
