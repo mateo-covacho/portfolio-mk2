@@ -29,8 +29,14 @@
   font-weight: thin;
 }
 
+@media screen and (max-width: 886px) {
+  .img-col {
+    display: none;
+  }
+}
+
 * {
-  outline: 0px solid red;
+  outline: 1px solid red;
   font-family: "Neue Montreal book", sans-serif;
   font-weight: book;
 }
@@ -39,7 +45,7 @@
   height: 200vh;
 }
 section {
-  height: 100vh;
+  min-height: 100vh;
 }
 .resume_button {
   border-radius: 30px;

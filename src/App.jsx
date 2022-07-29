@@ -16,6 +16,26 @@ import site_tech_img from "./Resources/imgs/site.png";
 import server_tech_img from "./Resources/imgs/computer.png";
 import dev_ops_tech_img from "./Resources/imgs/application.png";
 
+import bootstrap_logo from "./Resources/logos/front/Bootstrap.svg";
+import css_logo from "./Resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
+import html5_logo from "./Resources/logos/front/html5.svg";
+import javascript_logo from "./Resources/logos/front/Javascript.svg";
+import reactjs_logo from "./Resources/logos/front/reactjs-icon.svg";
+import svelte_logo_logo from "./Resources/logos/front/Svelte_Logo.svg";
+import threejs_logo from "./Resources/logos/front/Threejs-logo.svg";
+
+import amazon_web_services_logo_logo from "./Resources/logos/back/Amazon_Web_Services_Logo.svg";
+import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
+import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
+import python_logo from "./Resources/logos/back/python-icon.svg";
+import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
+
+import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
+import github_logo from "./Resources/logos/dev/GitHub-Mark-64px.png";
+import npm_logo from "./Resources/logos/dev/npmjs-tile.svg";
+//import postman_logo from "./Resources/logos/dev/getpostman-icon.svg";
+import webpack_logo from "./Resources/logos/dev/js_webpack-ar21.svg";
+
 function App() {
   const [active, setActive] = useState(false);
   function Model({ ...props }) {
@@ -116,7 +136,7 @@ function App() {
           </div>
         </div>
       </header>
-      <section ref={about} className='about-section mx-5 row '>
+      <section ref={about} className='about-section mx-5 row  text-wrap'>
         <div className='col my-auto h-75 '>
           <h2 className='display-3 col'>About me.</h2>
           <p className='lead  mb-2'>I am a Mateo Covacho, a young & talented software engineer. As a natural born problem-solver I am passionate about resolving problems by approaching them through various paths & points of view.</p>
@@ -128,8 +148,8 @@ function App() {
           <div className='display-5'>My favorite quality</div>
           <div className='lead  mb-2'>Even tho my problem-solving skills are very important, my most crucial quality in my opinion is my initiative. It has been what has allowed me to learn so much by my own.</div>
         </div>
-        <div className='col my-auto  d-flex-inline align-self-center  '>
-          <img src={me} className='img-fluid m-auto ' alt='img-fluid' style={{}} />
+        <div className='col my-auto  d-flex-inline align-self-center img-col '>
+          <img src={me} className='img-fluid m-auto me-img' alt='img-fluid' style={{}} />
         </div>
       </section>
       <section ref={abilities} className='tech-section container py-5'>
@@ -137,10 +157,33 @@ function App() {
         <div className='card-group  mx-auto'>
           <div className='card'>
             <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
-            <div className='card-body'>
-              <h5 className='card-title'>The tech I use while building client-side applications</h5>
-              <p className='card-text'>These are, but not limited to, the tech I use to edsign & build responsive web appications.</p>
-              
+            <div className='card-body container-fluid'>
+              <h5 className='card-title '>The tech I use while building client-side applications</h5>
+              <p className='card-text '>These are, but not limited to, the tech I use to edsign & build responsive web appications.</p>
+              <div class='d-flex flex-wrap bd-highlight'>
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={html5_logo} alt='logo' />
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={css_logo} alt='logo' />
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={reactjs_logo} alt='logo' />
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={javascript_logo} alt='logo' />
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={bootstrap_logo} alt='logo' />
+                </div>
+
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={svelte_logo_logo} alt='logo' />
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <img className='my-auto' height='50px' src={threejs_logo} alt='logo' />
+                </div>
+              </div>
             </div>
             <div className='card-footer'>
               <small className='text-muted'>Footer</small>
@@ -151,6 +194,23 @@ function App() {
             <div className='card-body'>
               <h5 className='card-title'>The tech I use for building fast and scalable backend applications</h5>
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
+              <div class='d-flex flex-wrap bd-highlight'>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={amazon_web_services_logo_logo} alt='logo' />
+                </div>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={firebase_logo} alt='logo' />
+                </div>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={nodejs_logo} alt='logo' />
+                </div>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={python_logo} alt='logo' />
+                </div>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={serverless_logo} alt='logo' />
+                </div>
+              </div>
             </div>
             <div className='card-footer'>
               <small className='text-muted'>Footer</small>
@@ -159,8 +219,25 @@ function App() {
           <div className='card'>
             <img src={dev_ops_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body'>
-              <h5 className='card-title'>And the tech I use to facilitate my work</h5>
-              <p className='card-text'>This is the tech I use to facilitate my work building CI/CD pipelines, helping me write and test code faster.</p>
+              <h5 className='card-title'>And the tech I use to facilitate my work and work with third party code</h5>
+              <p className='card-text'>This are the technologies I use to facilitate my work building CI/CD pipelines, helping me write and test code faster</p>
+              <div class='d-flex flex-wrap bd-highlight'>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={git_logo} alt='logo' />
+                </div>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={github_logo} alt='logo' />
+                </div>
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={npm_logo} alt='logo' />
+                </div>
+                {/* <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={postman_logo} alt='logo' />
+                </div> */}
+                <div class='p-2 bd-highlight'>
+                  <img className='my-auto' height='50px' src={webpack_logo} alt='logo' />
+                </div>
+              </div>
             </div>
             <div className='card-footer'>
               <small className='text-muted'>Footer</small>
