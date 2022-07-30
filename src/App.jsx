@@ -4,27 +4,34 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
+
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
+import Dropdown from "react-bootstrap/Dropdown";
+
 import { useSpring, animated, config } from "@react-spring/three";
 import me from "./Resources/imgs/me.jpg";
 import site_tech_img from "./Resources/imgs/site.png";
 import server_tech_img from "./Resources/imgs/computer.png";
 import dev_ops_tech_img from "./Resources/imgs/application.png";
+import Particles from "react-tsparticles";
+import { loadFull } from "tsparticles";
 
 import bootstrap_logo from "./Resources/logos/front/Bootstrap.svg";
 import css_logo from "./Resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
 import html5_logo from "./Resources/logos/front/html5.svg";
 import javascript_logo from "./Resources/logos/front/Javascript.svg";
 import reactjs_logo from "./Resources/logos/front/reactjs-icon.svg";
-import svelte_logo_logo from "./Resources/logos/front/Svelte_Logo.svg";
+import svelte_logo from "./Resources/logos/front/Svelte_Logo.svg";
 import threejs_logo from "./Resources/logos/front/Threejs-logo.svg";
+import figma_logo from "./Resources/logos/front/figma-icon.svg";
 
-import amazon_web_services_logo_logo from "./Resources/logos/back/Amazon_Web_Services_Logo.svg";
+import amazon_web_services_logo from "./Resources/logos/back/Amazon_Web_Services_Logo.svg";
 import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
 import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
 import python_logo from "./Resources/logos/back/python-icon.svg";
@@ -32,42 +39,46 @@ import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
 
 import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
 import github_logo from "./Resources/logos/dev/GitHub-Mark-64px.png";
-import npm_logo from "./Resources/logos/dev/npmjs-tile.svg";
+import npm_logo from "./Resources/logos/dev/npmjs-ar21.svg";
 //import postman_logo from "./Resources/logos/dev/getpostman-icon.svg";
 import webpack_logo from "./Resources/logos/dev/js_webpack-ar21.svg";
+import vscode_logo from "./Resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cba67.svg";
+
+import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
 function App() {
   const [active, setActive] = useState(false);
-  function Model({ ...props }) {
-    const group = useRef();
-    const { nodes, materials } = useGLTF("/80landscape2.glb");
+  const [projects, setProjects] = useState([
+    {
+      img: network_explorer_img,
+      tittle: "Network explorer",
+      link: "https://network-explorer.on.fleek.co/",
+      body: "An App to allow users to visualize data represented in network graph form datasets such as social media relational data (Friendships, follows, etc...) and data such as blockchain transactions for investigational and research purposes.",
+      tech: [reactjs_logo, javascript_logo, bootstrap_logo, amazon_web_services_logo, python_logo, serverless_logo, html5_logo, css_logo, git_logo, github_logo],
+      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "amazon_web_services_logo", "python_logo", "serverless_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
+    },
+  ]);
+  const [filter, setFilter] = useState(null);
+  const particlesInit = async (main) => {
+    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+    // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
+    // starting from v2 you can add only the features you need reducing the bundle size
+    await loadFull(main);
+  };
 
-    useFrame(({ clock }) => {
-      group.current.position.z = clock.getElapsedTime() / 2;
-    });
-    return (
-      <group
-        ref={group}
-        {...props}
-        dispose={null}
-        onClick={() => {
-          setActive(!active);
-        }}
-      >
-        <group scale={8}>
-          <mesh geometry={nodes.Plane003_1.geometry} material={materials.neon} position={[0, 0, 0]} />
-          <mesh geometry={nodes.Plane003.geometry} material={materials["Material.002"]} position={[0, 0, 0]} />
-        </group>
-      </group>
-    );
+  function filter_projects_by(logo) {
+    console.log("logo param", logo);
+    setFilter(logo);
+    console.log(filter);
   }
 
   const resume = useRef(null);
   const contact = useRef(null);
   const blog = useRef(null);
+  const project = useRef(null);
   const abilities = useRef(null);
   const about = useRef(null);
-
+  const particle_container = useRef(null);
   return (
     <div className='App container-fluid p-0'>
       <Navbar bg='light' expand='sm' sticky='top'>
@@ -95,23 +106,23 @@ function App() {
                 About
               </Nav.Item>
             </Nav>
-            <Nav pullRight className='px-5'>
-              <Nav.Item className='p-2' eventKey={1} href='#'>
+            <Nav pullright className='px-5'>
+              <Nav.Item className='p-2' eventkey={1} href='#'>
                 <a target='_blank' href='https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/'>
                   <BsLinkedin size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventKey={2} href='#'>
+              <Nav.Item className='p-2' eventkey={2} href='#'>
                 <a target='_blank' href='https://twitter.com/covacho_dev'>
                   <BsTwitter size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventKey={2} href='#'>
+              <Nav.Item className='p-2' eventkey={2} href='#'>
                 <a target='_blank' href='https://stackoverflow.com/users/18017427/mateo-covacho'>
                   <BsStackOverflow size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventKey={2} href='#'>
+              <Nav.Item className='p-2' eventkey={2} href='#'>
                 <a target='_blank' href='https://github.com/mateo-covacho'>
                   <BsGithub size={20} className='blacktext mosepointer' />
                 </a>
@@ -120,15 +131,66 @@ function App() {
           </Navbar.Collapse>
         </Container>
       </Navbar>
-      <header className='masthead bg-primary text-white text-center container-fluid w-100 d-flex align-items-center flex-column landing-section p-0 '>
-        <Canvas camera={{ fov: 70, position: [0, 1, 8], rotation: [0, 0, 0] }}>
-          <Model />
-          <OrbitControls enableZoom={false} enableDamping={false} enableRotate={false} enablePan={false} />
+      <Particles
+        className='tsparticles'
+        init={particlesInit}
+        container={{ id: "particle_container" }}
+        options={{
+          interactivity: {
+            events: {
+              onClick: {
+                enable: true,
+                mode: "push",
+              },
 
-          <EffectComposer>
-            <Bloom />
-          </EffectComposer>
-        </Canvas>
+              resize: true,
+            },
+            modes: {
+              push: {
+                quantity: 4,
+              },
+              repulse: {
+                distance: 200,
+                duration: 0.4,
+              },
+            },
+          },
+          fpsLimit: 60,
+          particles: {
+            color: {
+              value: "#ffffff",
+            },
+            links: {
+              color: "#ffffff",
+              distance: 150,
+              enable: true,
+              opacity: 0.5,
+              width: 1,
+            },
+            collisions: {
+              enable: true,
+            },
+            move: {
+              direction: "none",
+              enable: true,
+              outModes: {
+                default: "bounce",
+              },
+              random: false,
+              speed: 1,
+              straight: false,
+            },
+            number: {
+              density: {
+                enable: true,
+                area: 800,
+              },
+              value: 80,
+            },
+          },
+        }}
+      />
+      <header id='particle_container' className='masthead bg-primary text-white text-center container-fluid w-100 d-flex align-items-center flex-column landing-section p-0 '>
         <div className='m-auto name-section'>
           <h1 className=' mb-0'>Mateo Covacho</h1>
           <div className=''>
@@ -136,8 +198,8 @@ function App() {
           </div>
         </div>
       </header>
-      <section ref={about} className='about-section mx-5 row  text-wrap'>
-        <div className='col my-auto h-75 '>
+      <section ref={about} className='about-section mx-5 row  text-wrap py-5'>
+        <div className='col  h-75 '>
           <h2 className='display-3 col'>About me.</h2>
           <p className='lead  mb-2'>I am a Mateo Covacho, a young & talented software engineer. As a natural born problem-solver I am passionate about resolving problems by approaching them through various paths & points of view.</p>
           <div className='display-5'>A short story</div>
@@ -148,102 +210,312 @@ function App() {
           <div className='display-5'>My favorite quality</div>
           <div className='lead  mb-2'>Even tho my problem-solving skills are very important, my most crucial quality in my opinion is my initiative. It has been what has allowed me to learn so much by my own.</div>
         </div>
-        <div className='col my-auto  d-flex-inline align-self-center img-col '>
-          <img src={me} className='img-fluid m-auto me-img' alt='img-fluid' style={{}} />
+        <div className='col   d-flex-inline align-self-top img-col '>
+          <img src={me} className='img-fluid  me-img' alt='img-fluid' style={{}} />
         </div>
       </section>
-      <section ref={abilities} className='tech-section container py-5'>
+      <section ref={abilities} className='tech-section container mx-auto p-5'>
         <h2 className='display-3'>Tech I use</h2>
-        <div className='card-group  mx-auto'>
-          <div className='card'>
+        <div className='card-group  w-75 mx-auto'>
+          <div className='card py-4'>
             <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
-            <div className='card-body container-fluid'>
+            <div className='card-body   '>
               <h5 className='card-title '>The tech I use while building client-side applications</h5>
               <p className='card-text '>These are, but not limited to, the tech I use to edsign & build responsive web appications.</p>
-              <div class='d-flex flex-wrap bd-highlight'>
+              <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={html5_logo} alt='logo' />
+                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
+                    <img className='my-auto tech-logo' height='50vw' src={html5_logo} alt='logo' />
+                  </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={css_logo} alt='logo' />
+                  <a target='_blank' href='https://www.w3.org/Style/CSS/Overview.en.html'>
+                    <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='logo' />
+                  </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={reactjs_logo} alt='logo' />
+                  <a target='_blank' href='https://reactjs.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='logo' />
+                  </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={javascript_logo} alt='logo' />
+                  <a target='_blank' href='https://www.javascript.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='logo' />
+                  </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={bootstrap_logo} alt='logo' />
+                  <a target='_blank' href='https://getbootstrap.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={bootstrap_logo} alt='logo' />
+                  </a>
                 </div>
 
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={svelte_logo_logo} alt='logo' />
+                  <a target='_blank' href='https://svelte.dev/'>
+                    <img className='my-auto tech-logo' height='50vw' src={svelte_logo} alt='logo' />
+                  </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <img className='my-auto' height='50px' src={threejs_logo} alt='logo' />
+                  <a target='_blank' href='https://threejs.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={threejs_logo} alt='logo' />
+                  </a>
                 </div>
               </div>
             </div>
-            <div className='card-footer'>
-              <small className='text-muted'>Footer</small>
-            </div>
           </div>
-          <div className='card'>
+          <div className='card py-4'>
             <img src={server_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
-            <div className='card-body'>
-              <h5 className='card-title'>The tech I use for building fast and scalable backend applications</h5>
+            <div className='card-body  '>
+              <h5 className='card-title'>Tech I use for building fast and scalable backend applications</h5>
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
-              <div class='d-flex flex-wrap bd-highlight'>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={amazon_web_services_logo_logo} alt='logo' />
+              <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://aws.amazon.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='logo' style={{}} />
+                  </a>
                 </div>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={firebase_logo} alt='logo' />
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://firebase.google.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='logo' />
+                  </a>
                 </div>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={nodejs_logo} alt='logo' />
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://nodejs.org/en/'>
+                    <img className='my-auto tech-logo' height='50vw' src={nodejs_logo} alt='logo' />
+                  </a>
                 </div>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={python_logo} alt='logo' />
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.python.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='logo' />
+                  </a>
                 </div>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={serverless_logo} alt='logo' />
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.serverless.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={serverless_logo} alt='logo' />
+                  </a>
                 </div>
               </div>
-            </div>
-            <div className='card-footer'>
-              <small className='text-muted'>Footer</small>
             </div>
           </div>
-          <div className='card'>
+          <div className='card py-4'>
             <img src={dev_ops_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
-            <div className='card-body'>
-              <h5 className='card-title'>And the tech I use to facilitate my work and work with third party code</h5>
-              <p className='card-text'>This are the technologies I use to facilitate my work building CI/CD pipelines, helping me write and test code faster</p>
-              <div class='d-flex flex-wrap bd-highlight'>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={git_logo} alt='logo' />
+            <div className='card-body  '>
+              <h5 className='card-title'>Tech I use to work, heliping me increase productivity </h5>
+              <p className='card-text'>This are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster</p>
+              <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://git-scm.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={git_logo} alt='logo' />
+                  </a>
                 </div>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={github_logo} alt='logo' />
+                <div className='p-2 bd-highlight  '>
+                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
+                    <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='logo' />
+                  </a>
                 </div>
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={npm_logo} alt='logo' />
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://github.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='logo' />
+                  </a>
                 </div>
-                {/* <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={postman_logo} alt='logo' />
-                </div> */}
-                <div class='p-2 bd-highlight'>
-                  <img className='my-auto' height='50px' src={webpack_logo} alt='logo' />
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.npmjs.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://code.visualstudio.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={vscode_logo} alt='logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://webpack.js.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={webpack_logo} alt='logo' />
+                  </a>
                 </div>
               </div>
-            </div>
-            <div className='card-footer'>
-              <small className='text-muted'>Footer</small>
             </div>
           </div>
         </div>
+      </section>
+      <section ref={project} className='projects-section container mx-auto p-5'>
+        <h2 className='display-3 wrap project-tittle mx-auto mb-5 '>My projects</h2>
+        <Dropdown style={{ marginBottom: "20vh" }}>
+          <Dropdown.Toggle variant='success' id='dropdown-basic'>
+            Filter
+          </Dropdown.Toggle>
+
+          <Dropdown.Menu>
+            <Navbar bg='light' expand='sm' sticky='top'>
+              <Nav className='me-auto'>
+                <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={html5_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("html5_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={css_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("css_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={reactjs_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("reactjs_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={javascript_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("javascript_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={bootstrap_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("bootstrap_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={svelte_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("svelte_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight  '>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={threejs_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("threejs_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={amazon_web_services_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("amazon_web_services_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={firebase_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("firebase_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={nodejs_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("nodejs_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={python_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("python_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={serverless_logo}
+                      alt='logo'
+                      onClick={() => {
+                        filter_projects_by("serverless_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                </div>
+              </Nav>
+            </Navbar>
+          </Dropdown.Menu>
+        </Dropdown>
+        <Row xs={1} md={2} className='g-4'>
+          {projects.map((project, project_index) => {
+            if (filter === null || project.techString.includes(filter)) {
+              return (
+                <Col key={project_index}>
+                  <Card>
+                    <Card.Img variant='top' src={project.img} />
+                    <Card.Body>
+                      <Card.Title>{project.tittle}</Card.Title>
+                      <Card.Link>{project.link}</Card.Link>
+                      <Card.Text>{project.body}</Card.Text>
+                    </Card.Body>
+                    <Card.Footer>
+                      <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+                        {project.tech.map((technology, technology_index) => {
+                          return (
+                            <Nav.Item className='p-2 bd-highlight  ' key={technology_index}>
+                              <img className='my-auto tech-logo' height='30vw' src={technology} alt='logo' />
+                            </Nav.Item>
+                          );
+                        })}
+                      </div>
+                    </Card.Footer>
+                  </Card>
+                </Col>
+              );
+            } else {
+              console.log(filter, " is not in ", project.techString);
+            }
+          })}
+        </Row>
       </section>
     </div>
   );
