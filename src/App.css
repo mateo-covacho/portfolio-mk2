@@ -116,3 +116,12 @@ header {
 .projects-section {
   min-height: 95vh;
 }
+
+.project-card {
+  transition: all 0.5s;
+  cursor: pointer;
+}
+
+.project-card:hover {
+  transform: scale(1.1);
+}

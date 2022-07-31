@@ -13,6 +13,7 @@ import Nav from "react-bootstrap/Nav";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
 import Dropdown from "react-bootstrap/Dropdown";
+import Modal from "react-bootstrap/Modal";
 
 import { useSpring, animated, config } from "@react-spring/three";
 import me from "./Resources/imgs/me.jpg";
@@ -46,18 +47,12 @@ import vscode_logo from "./Resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cb
 
 import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
+import Networkexplorer from "./components/Networkexplorer.jsx";
+
 function App() {
   const [active, setActive] = useState(false);
-  const [projects, setProjects] = useState([
-    {
-      img: network_explorer_img,
-      tittle: "Network explorer",
-      link: "https://network-explorer.on.fleek.co/",
-      body: "An App to allow users to visualize data represented in network graph form datasets such as social media relational data (Friendships, follows, etc...) and data such as blockchain transactions for investigational and research purposes.",
-      tech: [reactjs_logo, javascript_logo, bootstrap_logo, amazon_web_services_logo, python_logo, serverless_logo, html5_logo, css_logo, git_logo, github_logo],
-      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "amazon_web_services_logo", "python_logo", "serverless_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
-    },
-  ]);
+  const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
+
   const [filter, setFilter] = useState(null);
   const particlesInit = async (main) => {
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -71,6 +66,27 @@ function App() {
     setFilter(logo);
     console.log(filter);
   }
+  function handleClose(name) {
+    if (name == "Network explorer") {
+      setShowNetworkExplorer(false);
+    }
+  }
+  function handleShow(name) {
+    if (name == "Network explorer") {
+      setShowNetworkExplorer(true);
+    }
+  }
+  const [projects, setProjects] = useState([
+    {
+      img: network_explorer_img,
+      modalComponent: <Networkexplorer />,
+      tittle: "Network explorer",
+      link: "https://network-explorer.on.fleek.co/",
+      body: "An App to allow users to visualize data represented in network graph form datasets such as social media relational data (Friendships, follows, etc...) and data such as blockchain transactions for investigational and research purposes.",
+      tech: [reactjs_logo, javascript_logo, bootstrap_logo, amazon_web_services_logo, python_logo, serverless_logo, html5_logo, css_logo, git_logo, github_logo],
+      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "amazon_web_services_logo", "python_logo", "serverless_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
+    },
+  ]);
 
   const resume = useRef(null);
   const contact = useRef(null);
@@ -201,7 +217,7 @@ function App() {
       <section ref={about} className='about-section mx-5 row  text-wrap py-5'>
         <div className='col  h-75 '>
           <h2 className='display-3 col'>About me.</h2>
-          <p className='lead  mb-2'>I am a Mateo Covacho, a young & talented software engineer. As a natural born problem-solver I am passionate about resolving problems by approaching them through various paths & points of view.</p>
+          <p className='lead  mb-2'>I am a Mateo Covacho, a young & talented software engineer. As a natural born problem-solver I am passionate about solving challenges by approaching them through various paths & points of view.</p>
           <div className='display-5'>A short story</div>
           <div className='lead  mb-2'>
             As a kid being taken to technology summer camps, I quickly found out my vocation was in technology, I jumped from tearing apart old toys for spare motors to building Lego robots and so on hopping between activities, each time getting closer to finding out what I wanted to be, until I
@@ -490,7 +506,12 @@ function App() {
             if (filter === null || project.techString.includes(filter)) {
               return (
                 <Col key={project_index}>
-                  <Card>
+                  <Card
+                    className='project-card'
+                    onClick={() => {
+                      handleShow(project.tittle);
+                    }}
+                  >
                     <Card.Img variant='top' src={project.img} />
                     <Card.Body>
                       <Card.Title>{project.tittle}</Card.Title>
@@ -509,6 +530,20 @@ function App() {
                       </div>
                     </Card.Footer>
                   </Card>
+                  <Modal show={showNetworkExplorer} size='lg'>
+                    <Modal.Header>{project.tittle}</Modal.Header>
+                    <Modal.Body>{project.modalComponent}</Modal.Body>
+                    <Modal.Footer>
+                      <Button
+                        variant='primary'
+                        onClick={() => {
+                          handleClose(project.tittle);
+                        }}
+                      >
+                        Close
+                      </Button>
+                    </Modal.Footer>
+                  </Modal>
                 </Col>
               );
             } else {
