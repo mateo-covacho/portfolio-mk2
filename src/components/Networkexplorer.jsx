@@ -6,7 +6,7 @@ const Networkexplorer = () => {
     <div className='container-fluid'>
       <h3>About this project</h3>
       <p>
-        My inspiration for this project came when looking for a tool to visualize network graph data, I specifically wanted to use it to visualize the
+        My inspiration for this project came when looking for a tool to visualize network graph data, I specifically wanted to use it to visualize the{" "}
         <a href='https://www.cnbc.com/2022/06/01/former-opensea-employee-charged-in-first-ever-nft-insider-trading-case.html'>
           first insider trading case in crypto
         </a>
