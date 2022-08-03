@@ -49,12 +49,13 @@ import vscode_logo from "./Resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cb
 import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
 import Networkexplorer from "./components/Networkexplorer.jsx";
+import Portfolio from "./components/Portfolio.jsx";
 import emailjs from "emailjs-com";
 import "./css/fcf.default.css";
 
 function App() {
-  const [active, setActive] = useState(false);
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
+  const [showPortfolio, setShowPortfolio] = useState(false);
   const [filter, setFilter] = useState(null);
   const form = useRef();
   const [name, setName] = useState();
@@ -77,11 +78,22 @@ function App() {
   function handleClose(name) {
     if (name == "Network explorer") {
       setShowNetworkExplorer(false);
+    } else if (name == "Portfolio") {
+      setShowPortfolio(false);
     }
   }
   function handleShow(name) {
     if (name == "Network explorer") {
       setShowNetworkExplorer(true);
+    } else if (name == "Portfolio") {
+      setShowPortfolio(true);
+    }
+  }
+  function getShowModal(name) {
+    if (name == "Network explorer") {
+      return showNetworkExplorer;
+    } else if (name == "Portfolio") {
+      return showPortfolio;
     }
   }
   function handleContactMe() {
@@ -98,7 +110,7 @@ function App() {
     );
   }
 
-  const [projects, setProjects] = useState([
+  var [projects, setProjects] = useState([
     {
       img: network_explorer_img,
       modalComponent: <Networkexplorer />,
@@ -129,15 +141,17 @@ function App() {
         "git_logo",
         "github_logo",
       ],
+      getter: "",
     },
     {
       img: portfolio,
-      modalComponent: <Networkexplorer />,
-      tittle: "Network explorer",
-      link: "https://network-explorer.on.fleek.co/",
-      body: "An App to allow users to visualize data represented in network graph form datasets such as social media relational data (Friendships, follows, etc...) and data such as blockchain transactions for investigational and research purposes.",
+      modalComponent: <Portfolio />,
+      tittle: "Portfolio",
+      link: "https://mateo-covacho.netlify.app",
+      body: "My personal porfolio that you are in right now. I use thsi project to showcase my project and alaborate on my development porcess for each of them",
       tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo, threejs_logo],
-      techString: [],
+      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo", "threejs_logo"],
+      getter: "",
     },
   ]);
 
@@ -580,8 +594,9 @@ function App() {
                     onClick={() => {
                       handleShow(project.tittle);
                     }}
+                    style={{ height: "555px" }}
                   >
-                    <Card.Img variant='top' src={project.img} />
+                    <Card.Img variant='top' src={project.img} style={{ height: "330px" }} />
                     <Card.Body>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
@@ -599,13 +614,16 @@ function App() {
                       </div>
                     </Card.Footer>
                   </Card>
-                  <Modal show={showNetworkExplorer} size='lg'>
+                  <Modal show={getShowModal(project.tittle)} size='lg'>
                     <Modal.Header>{project.tittle}</Modal.Header>
                     <Modal.Body>{project.modalComponent}</Modal.Body>
                     <Modal.Footer>
                       <Button
                         variant='primary'
                         onClick={() => {
+                          console.log(project.tittle);
+                          console.log(project_index);
+
                           handleClose(project.tittle);
                         }}
                       >
