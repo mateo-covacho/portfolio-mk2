@@ -339,7 +339,7 @@ function App() {
           <directionalLight intensity={1} decay={2} position={[442.81, 452.86, -697.7]} rotation={[-2.57, 0.49, 0.63]} />
           <OrbitControls autoRotate={false} enableZoom={false} />
           <Suspense>
-            <Model></Model>
+            <Box></Box>
           </Suspense>
         </Canvas>
         <div className='m-auto name-section col-4 '>
