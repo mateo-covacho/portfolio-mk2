@@ -6,6 +6,7 @@ import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 
+import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
 import Navbar from "react-bootstrap/Navbar";
 import Row from "react-bootstrap/Row";
@@ -57,7 +58,10 @@ import Portfolio from "./components/Portfolio.jsx";
 import emailjs from "emailjs-com";
 import "./css/fcf.default.css";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import { useLoader } from "@react-three/fiber";
 import { folder, useControls, Leva } from "leva";
+import { MeshLambertMaterial } from "three";
+import { Position } from "@react-three/drei/helpers/Position";
 
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
@@ -171,91 +175,17 @@ function App() {
   const about = useRef(null);
   const particle_container = useRef(null);
 
-  function Model({ ...props }) {
-    const group = useRef();
-    const { nodes, materials } = useGLTF("../public/untitled.gltf");
+  function Scene() {
+    // const { posotion1, posotion2, posotion3 } = useControls("Box 1", (posotion1 = [0, 0, 0]));
+
     return (
-      <group ref={group} {...props} dispose={null}>
-        <directionalLight intensity={0.7} decay={2} position={[200, 300, 300]} rotation={[-Math.PI / 4, 0.44, -0.4]} />
-        <OrthographicCamera makeDefault={false} far={100000} near={-100000} position={[-316.96, 300.58, 656.5]} rotation={[-0.14, -0.54, -0.07]} />
-        <mesh
-          geometry={nodes.Sphere.geometry}
-          material={nodes.Sphere.material}
-          position={[-152.33, 371.34, 115.33]}
-          rotation={[-0.09, -0.5, -0.04]}
-        />
-        <mesh geometry={nodes.Pyramid.geometry} material={nodes.Pyramid.material} position={[-130.73, 267.5, 95.4]} rotation={[2.46, -0.65, 2.74]} />
-        <mesh
-          geometry={nodes.Cone.geometry}
-          material={nodes.Cone.material}
-          position={[15.07, 219.66, 181.09]}
-          rotation={[-2.32, -0.37, -2.7]}
-          scale={0.76}
-        />
-        <mesh
-          geometry={nodes.Dodecahedron.geometry}
-          material={nodes.Dodecahedron.material}
-          position={[91.09, 102.4, 182.31]}
-          rotation={[2.44, 1.2, -2.94]}
-          scale={[0.76, 1.02, 0.76]}
-        />
-        <mesh
-          geometry={nodes.Helix.geometry}
-          material={nodes.Helix.material}
-          position={[74.21, 285.44, 171.96]}
-          rotation={[-0.13, -0.33, 0.67]}
-          scale={0.71}
-        />
-        <mesh
-          geometry={nodes.Cylinder_5.geometry}
-          material={nodes.Cylinder_5.material}
-          position={[121.55, 351.13, 273.78]}
-          rotation={[2.32, -0.15, 0.11]}
-          scale={[0.13, 0.82, 0.13]}
-        />
-        <mesh
-          geometry={nodes.Cylinder_4.geometry}
-          material={nodes.Cylinder_4.material}
-          position={[-38.34, 72.89, 164.23]}
-          rotation={[-2.67, 0.55, -0.05]}
-          scale={[0.13, 0.82, 0.13]}
-        />
-        <mesh
-          geometry={nodes.Cylinder_3.geometry}
-          material={nodes.Cylinder_3.material}
-          position={[-195.7, 23.24, 58.62]}
-          rotation={[-1.61, 0.48, -1.33]}
-          scale={[0.13, 0.82, 0.13]}
-        />
-        <mesh
-          geometry={nodes.Cylinder_2.geometry}
-          material={nodes.Cylinder_2.material}
-          position={[-29.61, 345.66, 71.82]}
-          rotation={[2.42, 0.86, 0.77]}
-          scale={[0.13, 0.82, 0.13]}
-        />
-        <mesh
-          geometry={nodes.Cylinder.geometry}
-          material={nodes.Cylinder.material}
-          position={[-258.16, 179.38, 48.51]}
-          rotation={[Math.PI, -0.08, -1.78]}
-          scale={[0.13, 0.82, 0.13]}
-        />
-        <mesh
-          geometry={nodes.Cube_2.geometry}
-          material={nodes.Cube_2.material}
-          position={[196.2, 223.22, 439.94]}
-          rotation={[0.77, -0.63, -1.4]}
-          scale={1.67}
-        />
-        <mesh geometry={nodes.Cube_3.geometry} material={nodes.Cube_3.material} position={[-264.37, 301.55, -8.68]} rotation={[0.84, -0.62, -1.37]} />
-        <mesh geometry={nodes.Cube.geometry} material={nodes.Cube.material} position={[-157.57, 129.17, 160.2]} rotation={[-0.25, -0.51, -1.99]} />
-      </group>
+      <Suspense>
+        <Box position={[0, 0, 0]} />
+        <Box position={[1, 1, 1]} />
+        <Box position={[-1, -1, -1]} />
+      </Suspense>
     );
   }
-
-  useGLTF.preload("/untitled.gltf");
-
   return (
     <div className='App container-fluid p-0'>
       <Navbar bg='light' expand='sm' sticky='top'>
@@ -336,19 +266,15 @@ function App() {
         style={{ paddingLeft: "10vw ", backgroundColor: "red" }}
       >
         <Canvas>
-          <directionalLight intensity={1} decay={2} position={[442.81, 452.86, -697.7]} rotation={[-2.57, 0.49, 0.63]} />
           <OrbitControls autoRotate={false} enableZoom={false} />
-          <Suspense>
-            <Box></Box>
-          </Suspense>
+
+          <Scene />
         </Canvas>
         <div className='m-auto name-section col-4 '>
           <h1 className=' display-1 mb-2 '>Mateo Covacho</h1>
 
           <p className=' font-weight-light mb-2 h5'>Software engineer</p>
-          <p className=' font-weight-light mb-2 h5'>
-            I am a Spanish junior Software Engineer and passionate tinkerer and tech enthusiast all my life{" "}
-          </p>
+          <p className=' font-weight-light mb-2 h5'>I am a Spanish junior Software Engineer, tinkerer and tech enthusiast. </p>
         </div>
       </header>
       <section ref={about} className='about-section mx-5 row  text-wrap py-5'>

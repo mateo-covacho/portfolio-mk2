@@ -1,72 +1,17 @@
-[![Netlify Status](https://api.netlify.com/api/v1/badges/97e4410b-939a-40de-b427-2c63a0142fde/deploy-status)](https://app.netlify.com/sites/mateo-covacho/deploys)
+About this project
+My inspiration for this project came when looking for a tool to visualize network graph data, I specifically wanted to use it to visualize the first insider trading case in crypto. I struggled to find a lightweight tool that allowed you to visualize your own data without first having to go through the process of creating a complex database with their service.
 
-# Getting Started with Create React App
+So my idea for a light weight aplication that allowed users to visualize data easily in the browser arouse.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+How I built it
+The first step was building the site itself, which was simple. I started building the landing page in which I have a simple explanation about these stools capabilities and features, for this simple part I simply used React with Bootstrap.
 
-## Available Scripts
+After that I moved on to building the tool itself I created a simple toolbar and the graph section itself was build using the third party package react-graph-vis (which is based on vis.js) to visualize the graph data.
 
-In the project directory, you can run:
+I also added tabs for the diffretn types of funcionaliies such as one for starting search algorithms
 
-### `npm start`
+![alt text](./src/Resources/imgs/dashboard.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Another important part of for this was building the backend built with Amazon Web Services, I used a lambda function retrieve and process blockchain data set. Since the data retrieved from the ether-scan API was much larger and complex than the sample data I provided, and therefore needed more computing power, which would slow down the site but would work well in AWS.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
-
-### `npm test`
-
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
-
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+![alt text](./src/Resources/imgs/Graphapp.png)
