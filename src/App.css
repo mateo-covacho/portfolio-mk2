@@ -34,23 +34,36 @@
     display: none;
   }
 }
+html {
+  width: 100vw !important;
+}
+
+h1 {
+  font-family: "Neue Montreal bold";
+}
+
+:root {
+  --color1: #fe4644;
+}
+Canvas {
+  position: absolute;
+}
 
 * {
-  outline: 0px solid red;
+  outline: 1 + px solid red;
   font-family: "Neue Montreal book", sans-serif;
   font-weight: book;
   z-index: 5;
 }
 
 .app {
-  min-height: 200vh;
 }
 section {
   z-index: 7;
 }
 .resume_button {
   border-radius: 30px;
-  background-color: #3cff00a7 !important ;
+  background-color: var(--color1) !important ;
 }
 
 .nav-bar {
@@ -73,7 +86,7 @@ header {
   border-radius: 0% !important;
 }
 .nav_button:hover {
-  background-color: #3cff00a7 !important ;
+  background-color: var(--color1) !important ;
   outline: none;
   border-radius: 0%;
 }
@@ -130,7 +143,9 @@ header {
 }
 
 footer {
-  height: 20vh;
+  height: 60vh;
+  width: 100vw !important;
+  background-color: cadetblue;
 }
 
 .aboutme-content {
@@ -141,4 +156,12 @@ footer {
 
 .card-img-top {
   object-fit: cover;
+}
+
+.card {
+  min-width: 260px;
+}
+
+#leva_root {
+  margin-top: 8vh !important;
 }
