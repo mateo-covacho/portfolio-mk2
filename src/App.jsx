@@ -231,28 +231,28 @@ function App() {
               </Nav.Item>
             </Nav>
             <Nav pullright className='px-5'>
-              <Nav.Item className='p-2' eventkey={2} href='#'>
-                <a target='_blank' href='mailto: mateocovacho@gmail.com'>
+              <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
+                <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com'>
                   <MdEmail size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventkey={1} href='#'>
-                <a target='_blank' href='https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/'>
+              <Nav.Item className='p-2 d-flex justify-content-center' eventkey={1} href='#'>
+                <a target='_blank' classname='m-auto' href='https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/'>
                   <BsLinkedin size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventkey={2} href='#'>
-                <a target='_blank' href='https://twitter.com/covacho_dev'>
+              <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
+                <a target='_blank' classname='m-auto' href='https://twitter.com/covacho_dev'>
                   <BsTwitter size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventkey={2} href='#'>
-                <a target='_blank' href='https://stackoverflow.com/users/18017427/mateo-covacho'>
+              <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
+                <a target='_blank' classname='m-auto' href='https://stackoverflow.com/users/18017427/mateo-covacho'>
                   <BsStackOverflow size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
-              <Nav.Item className='p-2' eventkey={2} href='#'>
-                <a target='_blank' href='https://github.com/mateo-covacho'>
+              <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
+                <a target='_blank' classname='m-auto' href='https://github.com/mateo-covacho'>
                   <BsGithub size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
