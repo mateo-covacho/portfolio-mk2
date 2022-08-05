@@ -123,7 +123,7 @@ function App() {
   var [projects, setProjects] = useState([
     {
       img: network_explorer_img,
-      modalComponent: <Networkexplorer />,
+      modalComponent: <Networkexplorer github='https://github.com/mateo-covacho/graph-app' />,
       tittle: "Network explorer",
       link: "https://network-explorer.on.fleek.co/",
       body: "An App to allow users to visualize data represented in network graph form datasets such as social media relational data (Friendships, follows, etc...) and data such as blockchain transactions for investigational and research purposes.",
@@ -153,17 +153,17 @@ function App() {
         "github_logo",
         "docker_logo",
       ],
-      getter: "",
+      github: "https://github.com/mateo-covacho/graph-app",
     },
     {
       img: portfolio,
-      modalComponent: <Portfolio />,
+      modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
       tittle: "Portfolio",
       link: "https://mateo-covacho.netlify.app",
       body: "My personal porfolio that you are in right now. I use thsi project to showcase my project and alaborate on my development porcess for each of them",
       tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo, threejs_logo],
       techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo", "threejs_logo"],
-      getter: "",
+      github: "https://github.com/mateo-covacho/portfolio-mk2",
     },
   ]);
 
@@ -188,7 +188,7 @@ function App() {
   }
   return (
     <div className='App container-fluid p-0'>
-      <Navbar bg='light' expand='sm' sticky='top'>
+      <Navbar bg='light' expand='md' sticky='top'>
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -620,7 +620,17 @@ function App() {
                     </Card.Footer>
                   </Card>
                   <Modal show={getShowModal(project.tittle)} size='lg'>
-                    <Modal.Header>{project.tittle}</Modal.Header>
+                    <Modal.Header>
+                      {project.tittle}
+                      <br />
+                      <a target='_blank' href={project.link}>
+                        {project.link}
+                      </a>
+                      <br />
+                      <a target='_blank' href={project.github}>
+                        {project.github}
+                      </a>
+                    </Modal.Header>
                     <Modal.Body>{project.modalComponent}</Modal.Body>
                     <Modal.Footer>
                       <Button
