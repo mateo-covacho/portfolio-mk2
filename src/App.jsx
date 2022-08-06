@@ -5,6 +5,7 @@ import { useGLTF, OrbitControls, PerspectiveCamera, Box, TorusKnot, Orthographic
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -19,38 +20,40 @@ import Modal from "react-bootstrap/Modal";
 
 import useSpline from "@splinetool/r3f-spline";
 import { useSpring, animated, config } from "@react-spring/three";
-import me from "./Resources/imgs/me.jpg";
-import portfolio from "./Resources/imgs/profolio.PNG";
-import site_tech_img from "./Resources/imgs/site.png";
-import server_tech_img from "./Resources/imgs/computer.png";
-import dev_ops_tech_img from "./Resources/imgs/application.png";
+import me from "./resources/imgs/me.jpg";
+import portfolio from "./resources/imgs/profolio.PNG";
+import site_tech_img from "./resources/imgs/site.png";
+import server_tech_img from "./resources/imgs/computer.png";
+import dev_ops_tech_img from "./resources/imgs/application.png";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-import bootstrap_logo from "./Resources/logos/front/Bootstrap.svg";
-import css_logo from "./Resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
-import html5_logo from "./Resources/logos/front/html5.svg";
-import javascript_logo from "./Resources/logos/front/Javascript.svg";
-import reactjs_logo from "./Resources/logos/front/reactjs-icon.svg";
-import svelte_logo from "./Resources/logos/front/Svelte_Logo.svg";
-import threejs_logo from "./Resources/logos/front/Threejs-logo.svg";
-import figma_logo from "./Resources/logos/front/figma-icon.svg";
+import bootstrap_logo from "./resources/logos/front/Bootstrap.svg";
+import css_logo from "./resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
+import html5_logo from "./resources/logos/front/html5.svg";
+import javascript_logo from "./resources/logos/front/Javascript.svg";
+import reactjs_logo from "./resources/logos/front/reactjs-icon.svg";
+import svelte_logo from "./resources/logos/front/Svelte_Logo.svg";
+import threejs_logo from "./resources/logos/front/Threejs-logo.svg";
+import figma_logo from "./resources/logos/front/figma-icon.svg";
 
-import amazon_web_services_logo from "./Resources/logos/back/Amazon_Web_Services_Logo.svg";
-import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
-import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
-import python_logo from "./Resources/logos/back/python-icon.svg";
-import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
-import docker_logo from "./Resources/logos/back/docker-icon.svg";
+import amazon_web_services_logo from "./resources/logos/back/Amazon_Web_Services_Logo.svg";
+import firebase_logo from "./resources/logos/back/firebase-icon.svg";
+import nodejs_logo from "./resources/logos/back/nodejs-icon.svg";
+import python_logo from "./resources/logos/back/python-icon.svg";
+import serverless_logo from "./resources/logos/back/serverless-icon.svg";
+import docker_logo from "./resources/logos/back/docker-icon.svg";
+import netlify_logo from "./resources/logos/back/netlify.svg";
+import bash_logo from "./resources/logos/dev/bash.svg";
 
-import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
-import github_logo from "./Resources/logos/dev/GitHub-Mark-64px.png";
-import npm_logo from "./Resources/logos/dev/npmjs-ar21.svg";
-//import postman_logo from "./Resources/logos/dev/getpostman-icon.svg";
-import webpack_logo from "./Resources/logos/dev/js_webpack-ar21.svg";
-import vscode_logo from "./Resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cba67.svg";
+import git_logo from "./resources/logos/dev/git-scm-icon.svg";
+import github_logo from "./resources/logos/dev/GitHub-Mark-64px.png";
+import npm_logo from "./resources/logos/dev/npmjs-ar21.svg";
+//import postman_logo from "./resources/logos/dev/getpostman-icon.svg";
+import webpack_logo from "./resources/logos/dev/js_webpack-ar21.svg";
+import vscode_logo from "./resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cba67.svg";
 
-import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
+import network_explorer_img from "./resources/imgs/network_explorer.PNG";
 
 import Networkexplorer from "./components/Networkexplorer.jsx";
 import Portfolio from "./components/Portfolio.jsx";
@@ -62,6 +65,7 @@ import { useLoader } from "@react-three/fiber";
 import { folder, useControls, Leva } from "leva";
 import { MeshLambertMaterial } from "three";
 import { Position } from "@react-three/drei/helpers/Position";
+import resume_pdf from "./resources/MateoCovacho.pdf";
 
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
@@ -72,6 +76,14 @@ function App() {
   const [email, setEmail] = useState();
   const [message, setMessage] = useState();
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
+
+  const resume = useRef(null);
+  const contact = useRef(null);
+  const blog = useRef(null);
+  const project = useRef(null);
+  const abilities = useRef(null);
+  const about = useRef(null);
+  const particle_container = useRef(null);
 
   const particlesInit = async (main) => {
     // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
@@ -154,6 +166,7 @@ function App() {
         "docker_logo",
       ],
       github: "https://github.com/mateo-covacho/graph-app",
+      tags: ["Graph search algorithms", "Cloud computing", "AWS Lambda", "Third party api", "Big data processing", "Data visualization", "vis.js"],
     },
     {
       img: portfolio,
@@ -164,16 +177,11 @@ function App() {
       tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo, threejs_logo],
       techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo", "threejs_logo"],
       github: "https://github.com/mateo-covacho/portfolio-mk2",
+      tags: ["Frontend design"],
     },
   ]);
 
-  const resume = useRef(null);
-  const contact = useRef(null);
-  const blog = useRef(null);
-  const project = useRef(null);
-  const abilities = useRef(null);
-  const about = useRef(null);
-  const particle_container = useRef(null);
+  const [projectContainerRef] = useAutoAnimate();
 
   function Scene() {
     // const { posotion1, posotion2, posotion3 } = useControls("Box 1", (posotion1 = [0, 0, 0]));
@@ -193,7 +201,7 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <a href=''>
+              <a href={resume_pdf} target='_Blank'>
                 <Nav.Item className=' btn btn-light nav_button mx-3 align-middle resume_button'>Resume</Nav.Item>
               </a>
               <Nav.Item
@@ -384,6 +392,11 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='logo' />
                   </a>
                 </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.netlify.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='logo' />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -423,6 +436,11 @@ function App() {
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://webpack.js.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={webpack_logo} alt='logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.gnu.org/software/bash/'>
+                    <img className='my-auto tech-logo' height='50vw' src={bash_logo} alt='logo' />
                   </a>
                 </div>
               </div>
@@ -589,7 +607,7 @@ function App() {
             </Navbar>
           </Dropdown.Menu>
         </Dropdown>
-        <Row xs={1} md={2} className='g-4'>
+        <Row ref={projectContainerRef} xs={1} md={2} className='g-4'>
           {projects.map((project, project_index) => {
             if (filter === null || project.techString.includes(filter)) {
               return (
@@ -599,13 +617,18 @@ function App() {
                     onClick={() => {
                       handleShow(project.tittle);
                     }}
-                    style={{ height: "555px" }}
+                    style={{ minHeight: "650px" }}
                   >
                     <Card.Img variant='top' src={project.img} style={{ height: "330px" }} />
                     <Card.Body>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
-                      <Card.Text>{project.body}</Card.Text>
+                      <Card.Text style={{ minHeight: "100px" }}>{project.body}</Card.Text>
+                    </Card.Body>
+                    <Card.Body className='py-0 ' style={{ minHeight: "64px" }}>
+                      {project.tags.map((tag) => {
+                        return <span className='tag'>{tag}</span>;
+                      })}
                     </Card.Body>
                     <Card.Footer>
                       <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
@@ -621,15 +644,22 @@ function App() {
                   </Card>
                   <Modal show={getShowModal(project.tittle)} size='lg'>
                     <Modal.Header>
-                      {project.tittle}
-                      <br />
-                      <a target='_blank' href={project.link}>
-                        {project.link}
-                      </a>
-                      <br />
-                      <a target='_blank' href={project.github}>
-                        {project.github}
-                      </a>
+                      <div className='container-fluid'>
+                        <div className='row'>{project.tittle}</div>
+                        <br />
+                        <div className='row'>
+                          <a padding='p-0' style={{ paddingRight: "0px" }} target='_blank' href={project.link}>
+                            {project.link}
+                          </a>
+                        </div>
+                        <br />
+
+                        <div className='row'>
+                          <a padding='p-0' style={{ paddingRight: "0px" }} target='_blank' href={project.github}>
+                            {project.github}
+                          </a>
+                        </div>
+                      </div>
                     </Modal.Header>
                     <Modal.Body>{project.modalComponent}</Modal.Body>
                     <Modal.Footer>

@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@formkit/auto-animate": "^1.0.0-beta.1",
     "@react-spring/three": "^9.5.2",
     "@react-three/drei": "^9.17.3",
     "@react-three/fiber": "^8.2.1",

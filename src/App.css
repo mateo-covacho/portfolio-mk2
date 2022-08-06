@@ -50,7 +50,7 @@ Canvas {
 }
 
 * {
-  outline: 1 + px solid red;
+  outline: 0px solid red;
   font-family: "Neue Montreal book", sans-serif;
   font-weight: book;
   z-index: 5;
@@ -159,9 +159,17 @@ footer {
 }
 
 .card {
-  min-width: 260px;
+  min-width: 300px;
 }
 
-#leva_root {
-  margin-top: 8vh !important;
+.tag {
+  background-color: rgba(128, 128, 128, 0.705);
+  padding: 5px;
+  border-radius: 3px;
+  color: white;
+  margin-right: 3px;
+  margin-bottom: 10px;
+  white-space: nowrap;
+  line-height: 30px;
+  font-size: small;
 }
