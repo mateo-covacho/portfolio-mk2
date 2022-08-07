@@ -1,4 +1,4 @@
-import "./App.css";
+import "./app.css";
 import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
@@ -29,16 +29,16 @@ import dev_ops_tech_img from "./resources/imgs/application.png";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-import bootstrap_logo from "./resources/logos/front/Bootstrap.svg";
+import bootstrap_logo from "./resources/logos/front/bootstrap.svg";
 import css_logo from "./resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
 import html5_logo from "./resources/logos/front/html5.svg";
-import javascript_logo from "./resources/logos/front/Javascript.svg";
+import javascript_logo from "./resources/logos/front/javascript.svg";
 import reactjs_logo from "./resources/logos/front/reactjs-icon.svg";
-import svelte_logo from "./resources/logos/front/Svelte_Logo.svg";
-import threejs_logo from "./resources/logos/front/Threejs-logo.svg";
+import svelte_logo from "./resources/logos/front/svelte_logo.svg";
+import threejs_logo from "./resources/logos/front/threejs-logo.svg";
 import figma_logo from "./resources/logos/front/figma-icon.svg";
 
-import amazon_web_services_logo from "./resources/logos/back/Amazon_Web_Services_Logo.svg";
+import amazon_web_services_logo from "./resources/logos/back/awslogo.svg";
 import firebase_logo from "./resources/logos/back/firebase-icon.svg";
 import nodejs_logo from "./resources/logos/back/nodejs-icon.svg";
 import python_logo from "./resources/logos/back/python-icon.svg";
@@ -48,7 +48,7 @@ import netlify_logo from "./resources/logos/back/netlify.svg";
 import bash_logo from "./resources/logos/dev/bash.svg";
 
 import git_logo from "./resources/logos/dev/git-scm-icon.svg";
-import github_logo from "./resources/logos/dev/GitHub-Mark-64px.png";
+import github_logo from "./resources/logos/dev/github.png";
 import npm_logo from "./resources/logos/dev/npmjs-ar21.svg";
 //import postman_logo from "./resources/logos/dev/getpostman-icon.svg";
 import webpack_logo from "./resources/logos/dev/js_webpack-ar21.svg";
