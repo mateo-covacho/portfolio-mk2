@@ -1,7 +1,6 @@
 import "./App.css";
 import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
-import { useGLTF, OrbitControls, PerspectiveCamera, Box, TorusKnot, OrthographicCamera } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
@@ -20,7 +19,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 
 import useSpline from "@splinetool/r3f-spline";
-import { useSpring, animated, config } from "@react-spring/three";
 import me from "./resources/imgs/me.jpg";
 import portfolio from "./resources/imgs/profolio.PNG";
 import site_tech_img from "./resources/imgs/site.png";
@@ -61,11 +59,6 @@ import Portfolio from "./components/Portfolio.jsx";
 
 import emailjs from "emailjs-com";
 import "./css/fcf.default.css";
-import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
-import { useLoader } from "@react-three/fiber";
-import { folder, useControls, Leva } from "leva";
-import { MeshLambertMaterial } from "three";
-import { Position } from "@react-three/drei/helpers/Position";
 
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
@@ -185,18 +178,6 @@ function App() {
       tags: ["Frontend design"],
     },
   ]);
-
-  function Scene() {
-    // const { posotion1, posotion2, posotion3 } = useControls("Box 1", (posotion1 = [0, 0, 0]));
-
-    return (
-      <Suspense>
-        <Box position={[0, 0, 0]} />
-        <Box position={[1, 1, 1]} />
-        <Box position={[-1, -1, -1]} />
-      </Suspense>
-    );
-  }
 
   useEffect(() => {
     Aos.init({ duration: 1500 });
@@ -687,7 +668,7 @@ function App() {
             </Navbar>
           </Dropdown.Menu>
         </Dropdown>
-        <Row  xs={1} md={2} className='g-4'>
+        <Row xs={1} md={2} className='g-4'>
           {projects.map((project, project_index) => {
             if (filter === null || project.techString.includes(filter)) {
               return (
