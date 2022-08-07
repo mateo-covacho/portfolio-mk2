@@ -212,7 +212,7 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <a href={resume_pdf} target='_Blank'>
+              <a href='https://drive.google.com/file/d/11YexQG4VBchkZPPH765H14zmyjygMK3u/view?usp=sharing' target='_Blank'>
                 <Nav.Item className=' btn btn-light nav_button mx-3 align-middle resume_button'>Resume</Nav.Item>
               </a>
               <Nav.Item
