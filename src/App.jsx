@@ -5,7 +5,6 @@ import { useGLTF, OrbitControls, PerspectiveCamera, Box, TorusKnot, Orthographic
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
-import { useAutoAnimate } from "@formkit/auto-animate/react";
 import Aos from "aos";
 import "aos/dist/aos.css";
 
@@ -186,8 +185,6 @@ function App() {
       tags: ["Frontend design"],
     },
   ]);
-
-  const [projectContainerRef] = useAutoAnimate();
 
   function Scene() {
     // const { posotion1, posotion2, posotion3 } = useControls("Box 1", (posotion1 = [0, 0, 0]));
@@ -690,7 +687,7 @@ function App() {
             </Navbar>
           </Dropdown.Menu>
         </Dropdown>
-        <Row ref={projectContainerRef} xs={1} md={2} className='g-4'>
+        <Row  xs={1} md={2} className='g-4'>
           {projects.map((project, project_index) => {
             if (filter === null || project.techString.includes(filter)) {
               return (
