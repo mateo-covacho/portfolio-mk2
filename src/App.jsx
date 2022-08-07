@@ -6,6 +6,8 @@ import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs
 import { MdEmail } from "react-icons/md";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import emailjs from "@emailjs/browser";
+import "./css/fcf.default.css";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -56,9 +58,6 @@ import network_explorer_img from "./resources/imgs/network_explorer.PNG";
 
 import Networkexplorer from "./components/Networkexplorer.jsx";
 import Portfolio from "./components/Portfolio.jsx";
-
-import emailjs from "emailjs-com";
-import "./css/fcf.default.css";
 
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);

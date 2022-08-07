@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@emailjs/browser": "^3.6.2",
     "@react-spring/three": "^9.5.2",
     "@react-three/fiber": "^8.2.1",
     "@react-three/postprocessing": "^2.5.4",
@@ -23,6 +24,7 @@
     "react-refresh": "^0.14.0",
     "react-router-dom": "^6.3.0",
     "react-scripts": "5.0.1",
+    "svgo": "^2.8.0",
     "web-vitals": "^2.1.4"
   },
   "scripts": {
