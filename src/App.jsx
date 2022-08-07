@@ -67,7 +67,7 @@ import { useLoader } from "@react-three/fiber";
 import { folder, useControls, Leva } from "leva";
 import { MeshLambertMaterial } from "three";
 import { Position } from "@react-three/drei/helpers/Position";
-import resume_pdf from "./resources/MateoCovacho.pdf";
+import resume_pdf from "./resources/mateocovacho.pdf";
 
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
