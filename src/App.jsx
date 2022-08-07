@@ -1,11 +1,13 @@
 import "./App.css";
-import { Suspense, useRef, useState } from "react";
+import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { useGLTF, OrbitControls, PerspectiveCamera, Box, TorusKnot, OrthographicCamera } from "@react-three/drei";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -85,12 +87,17 @@ function App() {
   const about = useRef(null);
   const particle_container = useRef(null);
 
-  const particlesInit = async (main) => {
-    // you can initialize the tsParticles instance (main) here, adding custom shapes or presets
+  const particlesInit = useCallback(async (engine) => {
+    console.log(engine);
+    // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
-    await loadFull(main);
-  };
+    await loadFull(engine);
+  }, []);
+
+  const particlesLoaded = useCallback(async (container) => {
+    await console.log(container);
+  }, []);
 
   function filter_projects_by(logo) {
     console.log("logo param", logo);
@@ -194,6 +201,10 @@ function App() {
       </Suspense>
     );
   }
+
+  useEffect(() => {
+    Aos.init({ duration: 1500 });
+  }, []);
   return (
     <div className='App container-fluid p-0'>
       <Navbar bg='light' expand='md' sticky='top'>
@@ -270,15 +281,75 @@ function App() {
       </Navbar>
       <header
         ref={particle_container}
-        className='masthead bg-primary text-white  container-fluid w-100  landing-section  row justify-content-start '
-        style={{ paddingLeft: "10vw ", backgroundColor: "red" }}
+        className='masthead bg-primary text-white  container-fluid w-100  landing-section  row justify-content-start m-0'
+        style={{ paddingLeft: "0", backgroundColor: "red" }}
       >
-        <Canvas>
-          <OrbitControls autoRotate={false} enableZoom={false} />
+        <Particles
+          id='tsparticles'
+          init={particlesInit}
+          loaded={particlesLoaded}
+          container={particle_container}
+          options={{
+            interactivity: {
+              events: {
+                onClick: {
+                  enable: true,
+                  mode: "push",
+                },
 
-          <Scene />
-        </Canvas>
-        <div className='m-auto name-section col-4 '>
+                resize: true,
+              },
+              modes: {
+                push: {
+                  quantity: 4,
+                },
+                repulse: {
+                  distance: 200,
+                  duration: 0.4,
+                },
+              },
+            },
+            fpsLimit: 60,
+            particles: {
+              color: {
+                value: "#ffffff",
+              },
+              links: {
+                color: "#ffffff",
+                distance: 150,
+                enable: true,
+                opacity: 0.5,
+                width: 1,
+              },
+              collisions: {
+                enable: true,
+              },
+              move: {
+                direction: "none",
+                enable: true,
+                outModes: {
+                  default: "bounce",
+                },
+                random: false,
+                speed: 1,
+                straight: false,
+              },
+              number: {
+                density: {
+                  enable: true,
+                  area: 800,
+                },
+                value: 60,
+              },
+            },
+            fullScreen: {
+              enable: false,
+              zIndex: 0,
+            },
+          }}
+        />
+
+        <div className='m-auto name-section col-4 ms-5'>
           <h1 className=' display-1 mb-2 '>Mateo Covacho</h1>
 
           <p className=' font-weight-light mb-2 h5'>Software engineer</p>
@@ -287,19 +358,32 @@ function App() {
       </header>
       <section ref={about} className='about-section mx-5 row  text-wrap py-5'>
         <div className='col  h-75 '>
-          <h2 className='display-3 col'>About me.</h2>
-          <p className='lead  mb-2 mb-5 pe-5'>
-            I am a Mateo Covacho, a young & talented software engineer. As a natural born problem-solver I am passionate about solving challenges by
-            approaching them through various paths & points of view.
+          <h2 data-aos='fade-left' className='display-3 col'>
+            About me.
+          </h2>
+          <p data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
+            I am a Mateo Covacho, a junior software engineer looking to work in this industry i love. As a natural born problem-solver I am passionate
+            about dealing with challenges by approaching them through various points of view, helping me solve it by reframing it.
           </p>
-          <div className='display-5'>A short story</div>
-          <div className='lead  mb-2 mb-5 pe-5'>
+          <h3 data-aos='fade-left' className='display-5'>
+            A short story
+          </h3>
+          <div data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
             As a kid being taken to technology summer camps, I quickly found out my vocation was in technology, I jumped from tearing apart old toys
             for spare motors to building Lego robots and so on hopping between activities, each time getting closer to finding out what I wanted to
             be, until I found software engineering.
           </div>
-          <div className='display-5'>My favorite quality</div>
-          <div className='lead  mb-2 mb-5 pe-5'>
+          <h3 data-aos='fade-left' className='display-5'>
+            My skills
+          </h3>
+          <div data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
+            All tho I am mostly skilled with frontend tools as you can see below, All tho I am looking to expand my skill set into backend skills /
+            cloud computing
+          </div>
+          <h3 data-aos='fade-left' className='display-5'>
+            My favorite quality
+          </h3>
+          <div data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
             Even tho my problem-solving skills are very important, my most crucial quality in my opinion is my initiative. It has been what has
             allowed me to learn so much by my own.
           </div>
@@ -311,7 +395,7 @@ function App() {
       <section ref={abilities} className='tech-section container mx-auto p-5'>
         <h2 className='display-3'>Tech I use</h2>
         <div className='card-group  w-75 mx-auto'>
-          <div className='card py-4'>
+          <div data-aos='fade-right' className='card py-4'>
             <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body   '>
               <h5 className='card-title '>The tech I use while building client-side applications</h5>
@@ -356,7 +440,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='card py-4'>
+          <div data-aos='fade-down' className='card py-4'>
             <img src={server_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body  '>
               <h5 className='card-title'>Tech I use for building fast and scalable backend applications</h5>
@@ -400,7 +484,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div className='card py-4'>
+          <div data-aos='fade-left' className='card py-4'>
             <img src={dev_ops_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body  '>
               <h5 className='card-title'>Tech I use to work, heliping me increase productivity </h5>
@@ -774,5 +858,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

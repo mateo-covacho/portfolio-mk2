@@ -29,7 +29,7 @@
   font-weight: thin;
 }
 
-@media screen and (max-width: 886px) {
+@media screen and (max-width: 1000px) {
   .img-col {
     display: none;
   }
@@ -146,6 +146,7 @@ footer {
   height: 60vh;
   width: 100vw !important;
   background-color: cadetblue;
+  z-index: 5;
 }
 
 .aboutme-content {
@@ -172,4 +173,8 @@ footer {
   white-space: nowrap;
   line-height: 30px;
   font-size: small;
+}
+
+#tsparticles {
+  width: 100%;
 }

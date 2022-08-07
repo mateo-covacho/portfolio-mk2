@@ -5,7 +5,8 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(<App />);
 
- {/* <Particles
+{
+  /* <Particles
           className='tsparticles'
           init={particlesInit}
           container={particle_container}
@@ -67,4 +68,10 @@ root.render(<App />);
               zIndex: 1,
             },
           }}
-        ></Particles> */}
+        ></Particles> */
+}
+{/* <Canvas>
+  <OrbitControls autoRotate={false} enableZoom={false} />
+
+  <Scene />
+</Canvas>; */}
