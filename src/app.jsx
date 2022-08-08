@@ -135,7 +135,7 @@ function App() {
       img: network_explorer_img,
       modalComponent: <Networkexplorer github='https://github.com/mateo-covacho/graph-app' />,
       tittle: "Network explorer",
-      link: "https://network-explorer.on.fleek.co/",
+      link: "https://network-graph-explorer.vercel.app/",
       body: "An App to allow users to visualize data represented in network graph form datasets such as social media relational data (Friendships, follows, etc...) and data such as blockchain transactions for investigational and research purposes.",
       tech: [
         reactjs_logo,
@@ -339,7 +339,7 @@ function App() {
             About me.
           </h2>
           <p data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
-            I am a Mateo Covacho, a junior software engineer looking to work in this industry i love. As a natural born problem-solver I am passionate
+            I am a junior software engineer from Spain looking to work in this industry I love. As a natural-born problem-solver, I am passionate
             about dealing with challenges by approaching them through various points of view, helping me solve it by reframing it.
           </p>
           <h3 data-aos='fade-left' className='display-5'>
