@@ -7,7 +7,6 @@ import { MdEmail } from "react-icons/md";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
-import "./css/fcf.default.css";
 import curriculum from "./Resources/mateocovachocurriculum.pdf";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
@@ -68,6 +67,7 @@ function App() {
   const form = useRef();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
+  const [subject, setSubject] = useState();
   const [message, setMessage] = useState();
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
@@ -124,6 +124,7 @@ function App() {
       "template_wu19pwn",
       {
         from_name: name,
+        subject: subject,
         message: message,
         reply_to_email: email,
       },
@@ -185,7 +186,7 @@ function App() {
   }, []);
   return (
     <div className='App container-fluid p-0'>
-      <Navbar bg='light' expand='md' sticky='top' classname="">
+      <Navbar bg='light' expand='md' sticky='top' classname=''>
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -756,91 +757,146 @@ function App() {
         </Row>
       </section>
       <footer ref={contact} className='container-fluid w-100 p-5'>
-        <div className='contactform-container mx-auto' style={{ width: "50%", minWidth: "250px" }}>
-          <h2 className='display-3'>Contact me</h2>
-          <div id='fcf-form'>
-            <div className='field'>
-              <label htmlFor='Name' className='label has-text-weight-normal'>
-                Your name
-              </label>
-              <div className='control'>
-                <input
-                  type='text'
-                  name='Name'
-                  id='Name'
-                  className='input is-full-width'
-                  maxLength={100}
-                  data-validate-field='Name'
-                  value={name}
-                  onChange={(e) => {
-                    setName(e.target.value);
-                    console.log(name);
+        <>
+          {/*Section heading*/}
+          <h2 className='h1-responsive font-weight-bold text-center my-4'>Contact Me</h2>
+          {/*Section description*/}
+          <p className='text-center w-responsive mx-auto mb-5'>
+            Do you have any questions? Please do not hesitate to contact me directly. I will get back to you within a matter of hours to help you.
+          </p>
+          <div className='row'>
+            {/*Grid column*/}
+            <div className='col-md-9 mb-md-0 mb-5'>
+              <form id='contact-form' name='contact-form' action='mail.php' method='POST'>
+                {/*Grid row*/}
+                <div className='row'>
+                  {/*Grid column*/}
+                  <div className='col-md-6'>
+                    <div className='md-form mb-0'>
+                      <label htmlFor='name' className=''>
+                        Your name
+                      </label>
+                      <input
+                        type='text'
+                        id='name'
+                        name='name'
+                        className='form-control'
+                        value={name}
+                        onChange={(e) => {
+                          setName(e.target.value);
+                          console.log(name);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  {/*Grid column*/}
+                  {/*Grid column*/}
+                  <div className='col-md-6'>
+                    <div className='md-form mb-0'>
+                      <label htmlFor='email' className=''>
+                        Your email
+                      </label>
+                      <input
+                        type='text'
+                        id='email'
+                        name='email'
+                        className='form-control'
+                        value={email}
+                        onChange={(e) => {
+                          setEmail(e.target.value);
+                          console.log(email);
+                        }}
+                      />
+                    </div>
+                  </div>
+                  {/*Grid column*/}
+                </div>
+                {/*Grid row*/}
+                <div className='row'>
+                  <div className='col-md-12'>
+                    <div className='md-form mb-0'>
+                      <label htmlFor='subject' className=''>
+                        Subject
+                      </label>
+                      <input
+                        type='text'
+                        id='subject'
+                        name='subject'
+                        className='form-control'
+                        value={subject}
+                        onChange={(e) => {
+                          setSubject(e.target.value);
+                          console.log(subject);
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/*Grid row*/}
+                <div className='row'>
+                  {/*Grid column*/}
+                  <div className='col-md-12'>
+                    <div className='md-form'>
+                      <label htmlFor='message'>Your message</label>
+                      <textarea
+                        type='text'
+                        id='message'
+                        name='message'
+                        rows={5}
+                        className='form-control md-textarea'
+                        defaultValue={""}
+                        value={message}
+                        onChange={(e) => {
+                          setMessage(e.target.value);
+                        }}
+                      />
+                    </div>
+                  </div>
+                </div>
+                {/*Grid row*/}
+              </form>
+              <div className='text-center text-md-left mt-3'>
+                <button
+                  id='fcf-button'
+                  className='btn  btn-success'
+                  onClick={() => {
+                    if (name && email.match(validRegex) && message) {
+                      handleContactMe();
+                      setName("");
+                      setEmail("");
+                      setMessage("");
+                      setSubject("");
+                    } else if (name && !email.match(validRegex) && message && subject) {
+                      alert("Please inut a valid email");
+                    } else {
+                      alert("Please fill all fields");
+                    }
                   }}
-                />
+                >
+                  Send Message
+                </button>
               </div>
+              <div className='status' />
             </div>
-            <div className='field'>
-              <label htmlFor='Email' className='label has-text-weight-normal'>
-                Your email address
-              </label>
-              <div className='control'>
-                <input
-                  type='email'
-                  name='Email'
-                  id='Email'
-                  className='input is-full-width'
-                  maxLength={100}
-                  data-validate-field='Email'
-                  value={email}
-                  onChange={(e) => {
-                    setEmail(e.target.value);
-                    console.log(email);
-                  }}
-                />
-              </div>
+            {/*Grid column*/}
+            <div className='col-md-3 text-center'>
+              <ul className='list-unstyled mb-0'>
+                <li>
+                  <i className='fas fa-map-marker-alt fa-2x' />
+                  <p>Madrid, 28003, Spain</p>
+                </li>
+                <li>
+                  <i className='fas fa-phone mt-4 fa-2x' />
+                  <p>+34 695 406 930</p>
+                </li>
+                <li>
+                  <i className='fas fa-envelope mt-4 fa-2x' />
+                  <p>mateocovacho@gmail.com</p>
+                </li>
+              </ul>
             </div>
-            <div className='field'>
-              <label htmlFor='Message' className='label has-text-weight-normal'>
-                Your message
-              </label>
-              <div className='control'>
-                <textarea
-                  name='Message'
-                  id='Message'
-                  className='textarea'
-                  maxLength={3000}
-                  rows={5}
-                  data-validate-field='Message'
-                  defaultValue={""}
-                  value={message}
-                  onChange={(e) => {
-                    setMessage(e.target.value);
-                    console.log(message);
-                  }}
-                />
-              </div>
-            </div>
-            <div id='fcf-status' className='fcf-status' />
-            <button
-              id='fcf-button'
-              className='button is-link is-medium'
-              onClick={() => {
-                if (name && email.match(validRegex) && message) {
-                  handleContactMe();
-                  setName("");
-                  setEmail("");
-                  setMessage("");
-                } else if (name && !email.match(validRegex) && message) {
-                  alert("Please inut a valid email");
-                } else {
-                  alert("Please fill all fields");
-                }
-              }}
-            >
-              Send Message
-            </button>
           </div>
-        </div>
+        </>
       </footer>
     </div>
   );

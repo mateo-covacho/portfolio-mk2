@@ -49,7 +49,7 @@ h1 {
 }
 
 :root {
-  --color1: #fe4644;
+  --color1: #fe4744;
 }
 Canvas {
   position: absolute;
@@ -155,7 +155,7 @@ header {
 footer {
   min-height: 60vh;
   width: 100vw !important;
-  background-color: cadetblue;
+  background-color: cornflowerblue;
   z-index: 5;
 }
 
@@ -195,4 +195,8 @@ footer {
 
 .resume-link {
   text-decoration: none;
+}
+
+.form-control {
+  border: none;
 }
