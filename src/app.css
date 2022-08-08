@@ -182,3 +182,7 @@ footer {
 .contactform-container {
   margin: 0;
 }
+
+.resume-link {
+  text-decoration: none;
+}

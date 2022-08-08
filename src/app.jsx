@@ -188,10 +188,12 @@ function App() {
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
-            <Nav className='me-auto'>
-              <a href={curriculum} target='_Blank'>
-                <Nav.Item className=' btn btn-light nav_button mx-3 align-middle resume_button'>Resume</Nav.Item>
-              </a>
+            <Nav>
+              <Nav.Item className=' btn btn-light nav_button mx-auto align-middle resume_button'>
+                <a href={curriculum} target='_Blank' classname='resume-link' style={{ textDecoration: "none", color: "black" }}>
+                  Resume
+                </a>
+              </Nav.Item>
               <Nav.Item
                 className=' btn btn-light nav_button mx-3 align-middle '
                 onClick={() => {
@@ -338,32 +340,32 @@ function App() {
           <h2 data-aos='fade-left' className='display-3 col'>
             About me.
           </h2>
-          <p data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
+          <p data-aos='fade-left' className='lead mb-5 pe-1'>
             I am a junior software engineer from Spain looking to work in this industry I love. As a natural-born problem-solver, I am passionate
             about dealing with challenges by approaching them through various points of view, helping me solve it by reframing it.
           </p>
           <h3 data-aos='fade-left' className='display-5'>
             A short story
           </h3>
-          <div data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
+          <p data-aos='fade-left' className='lead mb-5 pe-1'>
             As a kid being taken to technology summer camps, I quickly found out my vocation was in technology, I jumped from tearing apart old toys
             for spare motors to building Lego robots and so on hopping between activities, each time getting closer to finding out what I wanted to
             be, until I found software engineering.
-          </div>
+          </p>
           <h3 data-aos='fade-left' className='display-5'>
             My skills
           </h3>
-          <div data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
+          <p data-aos='fade-left' className='lead mb-5 pe-1'>
             All tho I am mostly skilled with frontend tools as you can see below, All tho I am looking to expand my skill set into backend skills /
             cloud computing
-          </div>
+          </p>
           <h3 data-aos='fade-left' className='display-5'>
             My favorite quality
           </h3>
-          <div data-aos='fade-left' className='lead  mb-2 mb-5 pe-5'>
+          <p data-aos='fade-left' className='lead mb-5 pe-1'>
             Even tho my problem-solving skills are very important, my most crucial quality in my opinion is my initiative. It has been what has
             allowed me to learn so much by my own.
-          </div>
+          </p>
         </div>
         <div className='col   d-flex-inline align-self-top img-col '>
           <img src={me} className='img-fluid  me-img' alt='img-fluid' style={{}} />
