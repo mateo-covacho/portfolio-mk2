@@ -35,7 +35,7 @@
   }
 }
 html {
-  width: 100vw !important;
+  width: 100% !important;
 }
 
 h1 {
@@ -143,7 +143,7 @@ header {
 }
 
 footer {
-  height: 60vh;
+  min-height: 60vh;
   width: 100vw !important;
   background-color: cadetblue;
   z-index: 5;
@@ -177,4 +177,8 @@ footer {
 
 #tsparticles {
   width: 100%;
+}
+
+.contactform-container {
+  margin: 0;
 }

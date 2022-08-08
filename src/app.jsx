@@ -8,6 +8,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
 import "./css/fcf.default.css";
+import curriculum from "./Resources/mateocovachocurriculum.pdf";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -188,7 +189,7 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
             <Nav className='me-auto'>
-              <a href='https://drive.google.com/file/d/11YexQG4VBchkZPPH765H14zmyjygMK3u/view?usp=sharing' target='_Blank'>
+              <a href={curriculum} target='_Blank'>
                 <Nav.Item className=' btn btn-light nav_button mx-3 align-middle resume_button'>Resume</Nav.Item>
               </a>
               <Nav.Item
@@ -325,7 +326,7 @@ function App() {
           }}
         />
 
-        <div className='m-auto name-section col-4 ms-5'>
+        <div className='m-auto name-section col-4 ms-5 w-75'>
           <h1 className=' display-1 mb-2 '>Mateo Covacho</h1>
 
           <p className=' font-weight-light mb-2 h5'>Software engineer</p>
@@ -745,7 +746,7 @@ function App() {
         </Row>
       </section>
       <footer ref={contact} className='container-fluid w-100 p-5'>
-        <div className='contactform-container w-25 mx-auto'>
+        <div className='contactform-container mx-auto' style={{ width: "50%", minWidth: "250px" }}>
           <h2 className='display-3'>Contact me</h2>
           <div id='fcf-form'>
             <div className='field'>
