@@ -334,7 +334,7 @@ function App() {
           <h1 className=' display-1 mb-2 '>Mateo Covacho</h1>
 
           <p className=' font-weight-light mb-2 h5'>Software engineer</p>
-          <p className=' font-weight-light mb-2 h5'>I am a Spanish junior Software Engineer, tinkerer and tech enthusiast. </p>
+          <p className=' font-weight-light mb-2 h5'>I am a Spanish Software Engineer, tinkerer and tech enthusiast. </p>
         </div>
       </header>
       <section ref={about} className='about-section mx-5 row  text-wrap py-5'>
