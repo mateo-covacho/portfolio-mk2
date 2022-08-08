@@ -170,7 +170,7 @@ function App() {
       img: portfolio,
       modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
       tittle: "Portfolio",
-      link: "https://mateo-covacho.netlify.app",
+      link: "https://mateo-covacho.vercel.app/",
       body: "My personal porfolio that you are in right now. I use thsi project to showcase my project and alaborate on my development porcess for each of them",
       tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo, threejs_logo],
       techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo", "threejs_logo"],
@@ -511,7 +511,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section ref={project} className='projects-section container mx-auto p-1'>
+      <section ref={project} className='projects-section container mx-auto py-5'>
         <h2 className='display-3 wrap project-tittle mx-auto mb-5 '>My projects</h2>
         <Dropdown style={{ marginBottom: "20vh" }}>
           <Dropdown.Toggle variant='success' id='dropdown-basic'>
@@ -689,9 +689,11 @@ function App() {
                       <Card.Text style={{ minHeight: "100px" }}>{project.body}</Card.Text>
                     </Card.Body>
                     <Card.Body className='py-0 ' style={{ minHeight: "64px" }}>
-                      {project.tags.map((tag) => {
-                        return <span className='tag'>{tag}</span>;
-                      })}
+                      <div className='d-flex flex-wrap bd-highlight m-0 align-items-end '>
+                        {project.tags.map((tag) => {
+                          return <span className='tag py-0 h-3'>{tag}</span>;
+                        })}
+                      </div>
                     </Card.Body>
                     <Card.Footer>
                       <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
