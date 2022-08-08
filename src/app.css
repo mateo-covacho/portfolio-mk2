@@ -35,10 +35,13 @@
   }
 }
 
-html,
-body {
+html {
   overflow-x: hidden;
-  width: 100%;
+  width: 100vw;
+}
+
+body {
+  width: 100vw;
 }
 
 h1 {
@@ -79,6 +82,10 @@ section {
   color: white;
 
   /* Rectangle 3 */
+}
+
+nav {
+  overflow: visible !important;
 }
 
 header {

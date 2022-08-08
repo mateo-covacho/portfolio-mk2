@@ -47,6 +47,7 @@ import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
 import docker_logo from "./Resources/logos/back/docker-icon.svg";
 import netlify_logo from "./Resources/logos/back/netlify.svg";
 import bash_logo from "./Resources/logos/dev/bash.svg";
+import vercel_logo from "./Resources/logos/back/vercel.svg";
 
 import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
 import github_logo from "./Resources/logos/dev/github.png";
@@ -184,7 +185,7 @@ function App() {
   }, []);
   return (
     <div className='App container-fluid p-0'>
-      <Navbar bg='light' expand='md' sticky='top'>
+      <Navbar bg='light' expand='md' sticky='top' classname="">
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -453,6 +454,11 @@ function App() {
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.docker.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://vercel.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
