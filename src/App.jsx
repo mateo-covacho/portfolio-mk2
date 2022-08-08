@@ -21,40 +21,40 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 
 import useSpline from "@splinetool/r3f-spline";
-import me from "./resources/imgs/me.jpg";
-import portfolio from "./resources/imgs/profolio.PNG";
-import site_tech_img from "./resources/imgs/site.png";
-import server_tech_img from "./resources/imgs/computer.png";
-import dev_ops_tech_img from "./resources/imgs/application.png";
+import me from "./Resources/imgs/me.jpg";
+import portfolio from "./Resources/imgs/profolio.PNG";
+import site_tech_img from "./Resources/imgs/site.png";
+import server_tech_img from "./Resources/imgs/computer.png";
+import dev_ops_tech_img from "./Resources/imgs/application.png";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
 
-import bootstrap_logo from "./resources/logos/front/bootstrap.svg";
-import css_logo from "./resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
-import html5_logo from "./resources/logos/front/html5.svg";
-import javascript_logo from "./resources/logos/front/javascript.svg";
-import reactjs_logo from "./resources/logos/front/reactjs-icon.svg";
-import svelte_logo from "./resources/logos/front/svelte_logo.svg";
-import threejs_logo from "./resources/logos/front/threejs-logo.svg";
-import figma_logo from "./resources/logos/front/figma-icon.svg";
+import bootstrap_logo from "./Resources/logos/front/bootstrap.svg";
+import css_logo from "./Resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
+import html5_logo from "./Resources/logos/front/html5.svg";
+import javascript_logo from "./Resources/logos/front/javascript.svg";
+import reactjs_logo from "./Resources/logos/front/reactjs-icon.svg";
+import svelte_logo from "./Resources/logos/front/svelte_logo.svg";
+import threejs_logo from "./Resources/logos/front/threejs-logo.svg";
+import figma_logo from "./Resources/logos/front/figma-icon.svg";
 
-import amazon_web_services_logo from "./resources/logos/back/awslogo.svg";
-import firebase_logo from "./resources/logos/back/firebase-icon.svg";
-import nodejs_logo from "./resources/logos/back/nodejs-icon.svg";
-import python_logo from "./resources/logos/back/python-icon.svg";
-import serverless_logo from "./resources/logos/back/serverless-icon.svg";
-import docker_logo from "./resources/logos/back/docker-icon.svg";
-import netlify_logo from "./resources/logos/back/netlify.svg";
-import bash_logo from "./resources/logos/dev/bash.svg";
+import amazon_web_services_logo from "./Resources/logos/back/awslogo.svg";
+import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
+import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
+import python_logo from "./Resources/logos/back/python-icon.svg";
+import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
+import docker_logo from "./Resources/logos/back/docker-icon.svg";
+import netlify_logo from "./Resources/logos/back/netlify.svg";
+import bash_logo from "./Resources/logos/dev/bash.svg";
 
-import git_logo from "./resources/logos/dev/git-scm-icon.svg";
-import github_logo from "./resources/logos/dev/github.png";
-import npm_logo from "./resources/logos/dev/npmjs-ar21.svg";
-//import postman_logo from "./resources/logos/dev/getpostman-icon.svg";
-import webpack_logo from "./resources/logos/dev/js_webpack-ar21.svg";
-import vscode_logo from "./resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cba67.svg";
+import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
+import github_logo from "./Resources/logos/dev/github.png";
+import npm_logo from "./Resources/logos/dev/npmjs-ar21.svg";
+//import postman_logo from "./Resources/logos/dev/getpostman-icon.svg";
+import webpack_logo from "./Resources/logos/dev/js_webpack-ar21.svg";
+import vscode_logo from "./Resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cba67.svg";
 
-import network_explorer_img from "./resources/imgs/network_explorer.PNG";
+import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
 import Networkexplorer from "./components/Networkexplorer.jsx";
 import Portfolio from "./components/Portfolio.jsx";
