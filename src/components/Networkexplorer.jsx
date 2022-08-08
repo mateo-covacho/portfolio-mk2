@@ -1,6 +1,6 @@
 import React from "react";
 import dashboard_img from "../Resources/imgs/dashboard.png";
-import arcitecture_img from "../Resources/imgs/graphapp.png";
+import arcitecture_img from "../Resources/imgs/Graphapp.png";
 const Networkexplorer = () => {
   return (
     <div className='container-fluid'>
