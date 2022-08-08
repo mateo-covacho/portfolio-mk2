@@ -34,8 +34,11 @@
     display: none;
   }
 }
-html {
-  width: 100% !important;
+
+html,
+body {
+  overflow-x: hidden;
+  width: 100%;
 }
 
 h1 {

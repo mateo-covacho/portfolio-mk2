@@ -228,7 +228,7 @@ function App() {
                 About
               </Nav.Item>
             </Nav>
-            <Nav pullright className='px-5'>
+            <Nav pullright className='px-5 ms-auto'>
               <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
                 <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com'>
                   <MdEmail size={20} className='blacktext mosepointer' />
@@ -371,8 +371,8 @@ function App() {
           <img src={me} className='img-fluid  me-img' alt='img-fluid' style={{}} />
         </div>
       </section>
-      <section ref={abilities} className='tech-section container mx-auto p-5'>
-        <h2 className='display-3'>Tech I use</h2>
+      <section ref={abilities} className='tech-section container mx-auto p-0'>
+        <h2 className='display-3 ms-3'>Tech I use</h2>
         <div className='card-group  w-75 mx-auto'>
           <div data-aos='fade-right' className='card py-4'>
             <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
@@ -511,7 +511,7 @@ function App() {
           </div>
         </div>
       </section>
-      <section ref={project} className='projects-section container mx-auto p-5'>
+      <section ref={project} className='projects-section container mx-auto p-1'>
         <h2 className='display-3 wrap project-tittle mx-auto mb-5 '>My projects</h2>
         <Dropdown style={{ marginBottom: "20vh" }}>
           <Dropdown.Toggle variant='success' id='dropdown-basic'>
@@ -682,7 +682,7 @@ function App() {
                     }}
                     style={{ minHeight: "650px" }}
                   >
-                    <Card.Img variant='top' src={project.img} style={{ height: "330px" }} />
+                    <Card.Img variant='top' src={project.img} style={{ maxHeight: "330px" }} />
                     <Card.Body>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
