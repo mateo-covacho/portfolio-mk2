@@ -41,6 +41,7 @@ import figma_logo from "./Resources/logos/front/figma-icon.svg";
 import amazon_web_services_logo from "./Resources/logos/back/awslogo.svg";
 import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
 import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
+import typescript_logo from "./Resources/logos/back/typescrip-logo.svg";
 import python_logo from "./Resources/logos/back/python-icon.svg";
 import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
 import docker_logo from "./Resources/logos/back/docker-icon.svg";
@@ -80,21 +81,16 @@ function App() {
   const particle_container = useRef(null);
 
   const particlesInit = useCallback(async (engine) => {
-    console.log(engine);
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
     // this loads the tsparticles package bundle, it's the easiest method for getting everything ready
     // starting from v2 you can add only the features you need reducing the bundle size
     await loadFull(engine);
   }, []);
 
-  const particlesLoaded = useCallback(async (container) => {
-    await console.log(container);
-  }, []);
+  const particlesLoaded = useCallback(async (container) => {}, []);
 
   function filter_projects_by(logo) {
-    console.log("logo param", logo);
     setFilter(logo);
-    console.log(filter);
   }
   function handleClose(name) {
     if (name == "Network explorer") {
@@ -118,7 +114,6 @@ function App() {
     }
   }
   function handleContactMe() {
-    console.log("sending email...");
     emailjs.send(
       "service_ykrrk11",
       "template_wu19pwn",
@@ -173,7 +168,7 @@ function App() {
       modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
       tittle: "Portfolio",
       link: "https://mateo-covacho.vercel.app/",
-      body: "My personal porfolio that you are in right now. I use thsi project to showcase my project and alaborate on my development porcess for each of them",
+      body: "My personal portfolio that you are in right now. I use this project to showcase my project and elaborate on my development process for each of them",
       tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo, threejs_logo],
       techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo", "threejs_logo"],
       github: "https://github.com/mateo-covacho/portfolio-mk2",
@@ -344,7 +339,7 @@ function App() {
           </h2>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
             I am a junior software engineer from Spain looking to work in this industry I love. As a natural-born problem-solver, I am passionate
-            about dealing with challenges by approaching them through various points of view, helping me solve it by reframing it.
+            about dealing with challenges by approaching them through various points of view, helping me solve them by reframing them.
           </p>
           <h3 data-aos='fade-left' className='display-5'>
             A short story
@@ -433,11 +428,6 @@ function App() {
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://firebase.google.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://nodejs.org/en/'>
                     <img className='my-auto tech-logo' height='50vw' src={nodejs_logo} alt='logo' />
                   </a>
@@ -445,6 +435,16 @@ function App() {
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.python.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.typescriptlang.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://firebase.google.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
@@ -458,13 +458,13 @@ function App() {
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://vercel.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='logo' />
+                  <a target='_blank' href='https://www.netlify.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.netlify.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='logo' />
+                  <a target='_blank' href='https://vercel.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='logo' />
                   </a>
                 </div>
               </div>
@@ -489,13 +489,13 @@ function App() {
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://github.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='logo' />
+                  <a target='_blank' href='https://www.npmjs.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.npmjs.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='logo' />
+                  <a target='_blank' href='https://github.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
@@ -738,9 +738,6 @@ function App() {
                       <Button
                         variant='primary'
                         onClick={() => {
-                          console.log(project.tittle);
-                          console.log(project_index);
-
                           handleClose(project.tittle);
                         }}
                       >
@@ -751,7 +748,6 @@ function App() {
                 </Col>
               );
             } else {
-              console.log(filter, " is not in ", project.techString);
             }
           })}
         </Row>
@@ -784,7 +780,6 @@ function App() {
                         value={name}
                         onChange={(e) => {
                           setName(e.target.value);
-                          console.log(name);
                         }}
                       />
                     </div>
@@ -804,7 +799,6 @@ function App() {
                         value={email}
                         onChange={(e) => {
                           setEmail(e.target.value);
-                          console.log(email);
                         }}
                       />
                     </div>
@@ -826,7 +820,6 @@ function App() {
                         value={subject}
                         onChange={(e) => {
                           setSubject(e.target.value);
-                          console.log(subject);
                         }}
                       />
                     </div>
