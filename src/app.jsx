@@ -8,6 +8,7 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
 import curriculum from "./Resources/mateocovachocurriculum.pdf";
+import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
 import Container from "react-bootstrap/Container";
@@ -79,6 +80,7 @@ function App() {
   const abilities = useRef(null);
   const about = useRef(null);
   const particle_container = useRef(null);
+  const [project_parent] = useAutoAnimate(/* optional config */);
 
   const particlesInit = useCallback(async (engine) => {
     // you can initiate the tsParticles instance (engine) here, adding custom shapes or presets
@@ -677,7 +679,7 @@ function App() {
             </Navbar>
           </Dropdown.Menu>
         </Dropdown>
-        <Row xs={1} md={2} className='g-4'>
+        <Row xs={1} md={2} className='g-4' ref={project_parent}>
           {projects.map((project, project_index) => {
             if (filter === null || project.techString.includes(filter)) {
               return (
