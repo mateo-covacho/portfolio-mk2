@@ -35,14 +35,7 @@
   }
 }
 
-html,
-body {
-  overflow-x: hidden;
-  width: 100vw;
-}
-body {
-  position: relative;
-}
+
 
 h1 {
   font-family: "Neue Montreal bold";

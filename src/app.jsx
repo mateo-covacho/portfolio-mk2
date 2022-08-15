@@ -180,7 +180,7 @@ function App() {
     Aos.init({ duration: 1500 });
   }, []);
   return (
-    <div className='App container-fluid p-0'>
+    <div className='App container-fluid p-0' style={{ position: "static" }}>
       <Navbar bg='light' expand='md' sticky='top' classname=''>
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
