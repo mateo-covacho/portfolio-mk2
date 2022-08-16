@@ -389,6 +389,11 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='logo' />
                   </a>
                 </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.typescriptlang.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='logo' />
+                  </a>
+                </div>
                 <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://reactjs.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='logo' />
@@ -439,11 +444,7 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.typescriptlang.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='logo' />
-                  </a>
-                </div>
+
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://firebase.google.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='logo' />
