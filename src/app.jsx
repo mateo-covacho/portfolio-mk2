@@ -362,8 +362,8 @@ function App() {
             My favorite quality
           </h3>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
-            Even tho my problem-solving skills are very important, my most crucial quality in my opinion is my initiative. It has been what has
-            allowed me to learn so much by my own.
+            My problem-solving skills are central to my profile, my most crucial quality in my opinion is my initiative. It has been what has allowed
+            me to learn so much by my own.
           </p>
         </div>
         <div className='col   d-flex-inline align-self-top img-col '>
@@ -377,7 +377,7 @@ function App() {
             <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body   '>
               <h5 className='card-title '>The tech I use while building client-side applications</h5>
-              <p className='card-text '>These are, but not limited to, the tech I use to edsign & build responsive web appications.</p>
+              <p className='card-text '>These are some of the technologies I use to design & build responsive web applications.</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
                 <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
@@ -476,9 +476,9 @@ function App() {
           <div data-aos='fade-left' className='card py-4'>
             <img src={dev_ops_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body  '>
-              <h5 className='card-title'>Tech I use to work, heliping me increase productivity </h5>
+              <h5 className='card-title'>Tech I use to work, helping me increase productivity</h5>
               <p className='card-text'>
-                This are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster
+                These are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster
               </p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
                 <div className='p-2 bd-highlight'>
