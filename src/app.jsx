@@ -201,7 +201,10 @@ function App() {
               >
                 Contact me
               </Nav.Item>
+              <a ref="https://medium.com/@mateocobacho" target="_blank">
+
               <Nav.Item className=' btn btn-light nav_button mx-3 align-middle '>Blog</Nav.Item>
+              </a>
               <Nav.Item
                 className=' btn btn-light nav_button mx-3 align-middle '
                 onClick={() => {
