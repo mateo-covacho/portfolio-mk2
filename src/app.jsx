@@ -4,6 +4,7 @@ import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { MdEmail } from "react-icons/md";
+
 import Aos from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
@@ -29,7 +30,6 @@ import server_tech_img from "./Resources/imgs/computer.png";
 import dev_ops_tech_img from "./Resources/imgs/application.png";
 import Particles from "react-tsparticles";
 import { loadFull } from "tsparticles";
-
 import bootstrap_logo from "./Resources/logos/front/bootstrap.svg";
 import css_logo from "./Resources/logos/front/198-1985012_transparent-css3-logo-png-css-logo-transparent-background.png";
 import html5_logo from "./Resources/logos/front/html5.svg";
@@ -201,7 +201,6 @@ function App() {
               >
                 Contact me
               </Nav.Item>
-
 
               <Nav.Item className=' btn btn-light nav_button mx-3 align-middle '>Blog</Nav.Item>
 
