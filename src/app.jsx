@@ -182,8 +182,8 @@ function App() {
     Aos.init({ duration: 1500 });
   }, []);
   return (
-    <div className='App container-fluid p-0' style={{ position: "static" }}>
-      <Navbar bg='light' expand='md' sticky='top' classname=''>
+    <div className='App container-fluid p-0' style={{ position: "absolute", width: "100vw" }}>
+      <Navbar bg='light' expand='md' sticky='top' classname='ms-5'>
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav'>
@@ -199,11 +199,11 @@ function App() {
                   contact.current?.scrollIntoView({ behavior: "smooth" });
                 }}
               >
-                Contact me
+                Contact
               </Nav.Item>
-
-              <Nav.Item className=' btn btn-light nav_button mx-3 align-middle '>Blog</Nav.Item>
-
+              <a href='http://link.medium.com/KB6fzkFRTpb' target='_blank'>
+                <Nav.Item className=' btn btn-light nav_button mx-3 align-middle '>Blog</Nav.Item>
+              </a>
               <Nav.Item
                 className=' btn btn-light nav_button mx-3 align-middle '
                 onClick={() => {
@@ -375,49 +375,49 @@ function App() {
       <section ref={abilities} className='tech-section container mx-auto p-0'>
         <h2 className='display-3 ms-3'>Tech I use</h2>
         <div className='card-group  w-75 mx-auto'>
-          <div data-aos='fade-right' className='card py-4'>
+          <div className='card py-4'>
             <img src={site_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body   '>
               <h5 className='card-title '>The tech I use while building client-side applications</h5>
               <p className='card-text '>These are some of the technologies I use to design & build responsive web applications.</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-up' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
                     <img className='my-auto tech-logo' height='50vw' src={html5_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-down' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://www.w3.org/Style/CSS/Overview.en.html'>
                     <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.typescriptlang.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-down' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://reactjs.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-down' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://www.javascript.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-up' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://getbootstrap.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={bootstrap_logo} alt='logo' />
                   </a>
                 </div>
 
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-down' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://svelte.dev/'>
                     <img className='my-auto tech-logo' height='50vw' src={svelte_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-up' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://threejs.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={threejs_logo} alt='logo' />
                   </a>
@@ -425,49 +425,48 @@ function App() {
               </div>
             </div>
           </div>
-          <div data-aos='fade-down' className='card py-4'>
+          <div className='card py-4'>
             <img src={server_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body  '>
               <h5 className='card-title'>Tech I use for building fast and scalable backend applications</h5>
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://aws.amazon.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='logo' style={{}} />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-down' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://nodejs.org/en/'>
                     <img className='my-auto tech-logo' height='50vw' src={nodejs_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.python.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='logo' />
                   </a>
                 </div>
-
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-down' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://firebase.google.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-down' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.serverless.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={serverless_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.docker.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-down' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.netlify.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://vercel.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='logo' />
                   </a>
@@ -475,7 +474,7 @@ function App() {
               </div>
             </div>
           </div>
-          <div data-aos='fade-left' className='card py-4'>
+          <div className='card py-4'>
             <img src={dev_ops_tech_img} className='card-img-top w-25 m-auto' alt='card-group-image' />
             <div className='card-body  '>
               <h5 className='card-title'>Tech I use to work, helping me increase productivity</h5>
@@ -483,37 +482,37 @@ function App() {
                 These are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster
               </p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://git-scm.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={git_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
+                <div data-aos='fade-down' className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
                     <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.npmjs.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-down' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://github.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://code.visualstudio.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={vscode_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-down' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://webpack.js.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={webpack_logo} alt='logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.gnu.org/software/bash/'>
                     <img className='my-auto tech-logo' height='50vw' src={bash_logo} alt='logo' />
                   </a>
@@ -757,145 +756,147 @@ function App() {
           })}
         </Row>
       </section>
-      <footer ref={contact} className='container-fluid w-100 p-5'>
-        <>
-          {/*Section heading*/}
-          <h2 className='h1-responsive font-weight-bold text-center my-4'>Contact Me</h2>
-          {/*Section description*/}
-          <p className='text-center w-responsive mx-auto mb-5'>
-            Do you have any questions? Please do not hesitate to contact me directly. I will get back to you within a matter of hours to help you.
-          </p>
-          <div className='row'>
-            {/*Grid column*/}
-            <div className='col-md-9 mb-md-0 mb-5'>
-              <form id='contact-form' name='contact-form' action='mail.php' method='POST'>
-                {/*Grid row*/}
-                <div className='row'>
-                  {/*Grid column*/}
-                  <div className='col-md-6'>
-                    <div className='md-form mb-0'>
-                      <label htmlFor='name' className=''>
-                        Your name
-                      </label>
-                      <input
-                        type='text'
-                        id='name'
-                        name='name'
-                        className='form-control'
-                        value={name}
-                        onChange={(e) => {
-                          setName(e.target.value);
-                        }}
-                      />
+      <div style={{ position: "static" }}>
+        <footer ref={contact} className='container-fluid w-100 p-5'>
+          <>
+            {/*Section heading*/}
+            <h2 className='display-3 wrap mx-auto mb-5 '>Contact me</h2>
+            {/*Section description*/}
+            <p className='text-center w-responsive mx-auto mb-5'>
+              Do you have any questions? Please do not hesitate to contact me directly. I will get back to you within a matter of hours to help you.
+            </p>
+            <div className='row'>
+              {/*Grid column*/}
+              <div className='col-md-9 mb-md-0 mb-5'>
+                <form id='contact-form' name='contact-form' action='mail.php' method='POST'>
+                  {/*Grid row*/}
+                  <div className='row'>
+                    {/*Grid column*/}
+                    <div className='col-md-6'>
+                      <div className='md-form mb-0'>
+                        <label htmlFor='name' className=''>
+                          Your name
+                        </label>
+                        <input
+                          type='text'
+                          id='name'
+                          name='name'
+                          className='form-control'
+                          value={name}
+                          onChange={(e) => {
+                            setName(e.target.value);
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/*Grid column*/}
+                    {/*Grid column*/}
+                    <div className='col-md-6'>
+                      <div className='md-form mb-0'>
+                        <label htmlFor='email' className=''>
+                          Your email
+                        </label>
+                        <input
+                          type='text'
+                          id='email'
+                          name='email'
+                          className='form-control'
+                          value={email}
+                          onChange={(e) => {
+                            setEmail(e.target.value);
+                          }}
+                        />
+                      </div>
+                    </div>
+                    {/*Grid column*/}
+                  </div>
+                  {/*Grid row*/}
+                  <div className='row'>
+                    <div className='col-md-12'>
+                      <div className='md-form mb-0'>
+                        <label htmlFor='subject' className=''>
+                          Subject
+                        </label>
+                        <input
+                          type='text'
+                          id='subject'
+                          name='subject'
+                          className='form-control'
+                          value={subject}
+                          onChange={(e) => {
+                            setSubject(e.target.value);
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                  {/*Grid column*/}
-                  {/*Grid column*/}
-                  <div className='col-md-6'>
-                    <div className='md-form mb-0'>
-                      <label htmlFor='email' className=''>
-                        Your email
-                      </label>
-                      <input
-                        type='text'
-                        id='email'
-                        name='email'
-                        className='form-control'
-                        value={email}
-                        onChange={(e) => {
-                          setEmail(e.target.value);
-                        }}
-                      />
+                  {/*Grid row*/}
+                  <div className='row'>
+                    {/*Grid column*/}
+                    <div className='col-md-12'>
+                      <div className='md-form'>
+                        <label htmlFor='message'>Your message</label>
+                        <textarea
+                          type='text'
+                          id='message'
+                          name='message'
+                          rows={5}
+                          className='form-control md-textarea'
+                          defaultValue={""}
+                          value={message}
+                          onChange={(e) => {
+                            setMessage(e.target.value);
+                          }}
+                        />
+                      </div>
                     </div>
                   </div>
-                  {/*Grid column*/}
+                  {/*Grid row*/}
+                </form>
+                <div className='text-center text-md-left mt-3'>
+                  <button
+                    id='fcf-button'
+                    className='btn  btn-success'
+                    onClick={() => {
+                      if (name && email.match(validRegex) && message) {
+                        handleContactMe();
+                        setName("");
+                        setEmail("");
+                        setMessage("");
+                        setSubject("");
+                      } else if (name && !email.match(validRegex) && message && subject) {
+                        alert("Please inut a valid email");
+                      } else {
+                        alert("Please fill all fields");
+                      }
+                    }}
+                  >
+                    Send Message
+                  </button>
                 </div>
-                {/*Grid row*/}
-                <div className='row'>
-                  <div className='col-md-12'>
-                    <div className='md-form mb-0'>
-                      <label htmlFor='subject' className=''>
-                        Subject
-                      </label>
-                      <input
-                        type='text'
-                        id='subject'
-                        name='subject'
-                        className='form-control'
-                        value={subject}
-                        onChange={(e) => {
-                          setSubject(e.target.value);
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-                {/*Grid row*/}
-                <div className='row'>
-                  {/*Grid column*/}
-                  <div className='col-md-12'>
-                    <div className='md-form'>
-                      <label htmlFor='message'>Your message</label>
-                      <textarea
-                        type='text'
-                        id='message'
-                        name='message'
-                        rows={5}
-                        className='form-control md-textarea'
-                        defaultValue={""}
-                        value={message}
-                        onChange={(e) => {
-                          setMessage(e.target.value);
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-                {/*Grid row*/}
-              </form>
-              <div className='text-center text-md-left mt-3'>
-                <button
-                  id='fcf-button'
-                  className='btn  btn-success'
-                  onClick={() => {
-                    if (name && email.match(validRegex) && message) {
-                      handleContactMe();
-                      setName("");
-                      setEmail("");
-                      setMessage("");
-                      setSubject("");
-                    } else if (name && !email.match(validRegex) && message && subject) {
-                      alert("Please inut a valid email");
-                    } else {
-                      alert("Please fill all fields");
-                    }
-                  }}
-                >
-                  Send Message
-                </button>
+                <div className='status' />
               </div>
-              <div className='status' />
+              {/*Grid column*/}
+              <div className='col-md-3 text-center'>
+                <ul className='list-unstyled mb-0'>
+                  <li>
+                    <i className='fas fa-map-marker-alt fa-2x' />
+                    <p>Madrid, 28003, Spain</p>
+                  </li>
+                  <li>
+                    <i className='fas fa-phone mt-4 fa-2x' />
+                    <p>+34 695 406 930</p>
+                  </li>
+                  <li>
+                    <i className='fas fa-envelope mt-4 fa-2x' />
+                    <p>mateocovacho@gmail.com</p>
+                  </li>
+                </ul>
+              </div>
             </div>
-            {/*Grid column*/}
-            <div className='col-md-3 text-center'>
-              <ul className='list-unstyled mb-0'>
-                <li>
-                  <i className='fas fa-map-marker-alt fa-2x' />
-                  <p>Madrid, 28003, Spain</p>
-                </li>
-                <li>
-                  <i className='fas fa-phone mt-4 fa-2x' />
-                  <p>+34 695 406 930</p>
-                </li>
-                <li>
-                  <i className='fas fa-envelope mt-4 fa-2x' />
-                  <p>mateocovacho@gmail.com</p>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </>
-      </footer>
+          </>
+        </footer>
+      </div>
     </div>
   );
 }
