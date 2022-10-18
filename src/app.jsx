@@ -332,7 +332,7 @@ function App() {
         <div className='m-auto name-section col-4 ms-5 w-75' style={{ position: "relative", right: "20px", top: "-30%" }}>
           <h1 className=' display-1 mb-2 '>Mateo Covacho</h1>
 
-          <p className=' font-weight-light mb-2 h5'>Software engineer</p>
+          <p className=' font-weight-light mb-2 h5'>Software developer</p>
           <p className=' font-weight-light mb-2 h5'>I am a Spanish Software Engineer, tinkerer and tech enthusiast. </p>
         </div>
       </header>
