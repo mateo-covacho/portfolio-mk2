@@ -756,8 +756,8 @@ function App() {
           })}
         </Row>
       </section>
-      <div style={{ position: "static" }}>
-        <footer ref={contact} className='container-fluid w-100 p-5'>
+      <div>
+        <footer style={{ position: "absolute" }} ref={contact} className='container-fluid w-100 p-5'>
           <>
             {/*Section heading*/}
             <h2 className='display-3 wrap mx-auto mb-5 '>Contact me</h2>
