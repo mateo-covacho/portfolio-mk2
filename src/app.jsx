@@ -44,6 +44,7 @@ import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
 import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
 import typescript_logo from "./Resources/logos/back/typescrip-logo.svg";
 import python_logo from "./Resources/logos/back/python-icon.svg";
+import java_logo from "./Resources/logos/back/java.png";
 import serverless_logo from "./Resources/logos/back/serverless-icon.svg";
 import docker_logo from "./Resources/logos/back/docker-icon.svg";
 import netlify_logo from "./Resources/logos/back/netlify.svg";
@@ -186,7 +187,7 @@ function App() {
       <Navbar bg='light' expand='md' sticky='top' classname='ms-5'>
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
-          <Navbar.Collapse id='basic-navbar-nav'>
+          <Navbar.Collapse id='basic-navbar-nav ps-5'>
             <Nav>
               <Nav.Item className=' btn btn-light nav_button mx-auto align-middle resume_button'>
                 <a href={curriculum} target='_Blank' classname='resume-link' style={{ textDecoration: "none", color: "black" }}>
@@ -444,6 +445,11 @@ function App() {
                 <div data-aos='fade-up' className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.python.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='logo' />
+                  </a>
+                </div>
+                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.java.com/en/'>
+                    <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='logo' />
                   </a>
                 </div>
                 <div data-aos='fade-down' className='p-2 bd-highlight'>
