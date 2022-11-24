@@ -1,4 +1,4 @@
-# https://mateo-covacho.netlify.app/
+# https://mateocovacho.com
 
 # Perosnal porftolio mk2
 This is a simple frontend project that like I developed to help me expose my abilities as a software engineer.
