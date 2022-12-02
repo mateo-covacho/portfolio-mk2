@@ -188,7 +188,7 @@ function App() {
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav ps-5'>
-            <Nav>
+            <Nav >
               <Nav.Item className=' btn btn-light nav_button mx-auto align-middle resume_button'>
                 <a href={curriculum} target='_Blank' classname='resume-link' style={{ textDecoration: "none", color: "black" }}>
                   Resume
