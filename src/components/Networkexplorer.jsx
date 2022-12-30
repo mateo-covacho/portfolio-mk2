@@ -4,41 +4,32 @@ import arcitecture_img from "../Resources/imgs/Graphapp.png";
 const Networkexplorer = () => {
   return (
     <div className='container-fluid'>
-      <h3>About this project</h3>
       <p>
-        My inspiration for this project came when looking for a tool to visualize network graph data, I specifically wanted to use it to visualize the{" "}
-        <a target='_blank' href='https://www.cnbc.com/2022/06/01/former-opensea-employee-charged-in-first-ever-nft-insider-trading-case.html'>
-          first insider trading case in crypto
-        </a>
-        . I struggled to find a lightweight tool that allowed you to visualize your own data without first having to go through the process of
-        creating a complex database with their service. For example, one of the most popular tools i found was the Neo4j that had a visualization
-        option, however you had to create a database and import data that you wanted to visualize only once, needless to say it is an unnecessarily
-        complex option hassle
-        <br />
-        <br />
-        So my idea for a light weight application that allowed users to visualize data easily in the browser arouse.
-        <br />
+        I recently developed a lightweight tool that allows users to easily visualize network graph data in their browser. I created this tool because
+        I was searching for a way to visualize the first insider trading case in crypto and struggled to find a simple solution. Many popular options,
+        like Neo4j, required the creation of a complex database before visualizing data, which I found to be unnecessarily time-consuming.
       </p>
-      <h3>How I built it</h3>
       <p>
-        The first step was building the site itself, which was simple. I started building the landing page in which I have a simple explanation about
-        these stools capabilities and features, for this simple part I simply used React with Bootstrap.
-        <br />
-        <br />
-        After that I moved on to building the tool itself I created a simple toolbar and the graph section itself was built using a third party
-        package called react-graph-vis (which is based on vis.js) to visualize the graph data.
-        <br />
-        <br />I also added tabs for the different types of functionalities such as one for starting pathfinding algorithms or another for data
-        scraping
+        To build the tool, I first created the landing page using React with Bootstrap. This page included a simple explanation of the tool's
+        capabilities and features. Next, I moved on to building the tool itself. I included a simple toolbar and used the react-graph-vis package
+        (which is based on vis.js) to visualize the graph data. I also added tabs for various functionalities such as pathfinding algorithms and data
+        scraping.
       </p>
       <img src={dashboard_img} className='w-100' />
+
       <p>
-        <br />
-        Another important part of for this was building the backend built with Amazon Web Services, I used a lambda function to retrieve and process
-        blockchain data set. Since the data retrieved from the ether-scan API was much larger and complex than the sample data I provided, and
-        therefore needed more computing power, which would slow down the site but would work well in AWS.{" "}
+        On the backend, I used Amazon Web Services and a lambda function to retrieve and process blockchain data from the ether-scan API. This data
+        was much larger and more complex than the sample data I provided, so I needed the additional computing power of AWS to handle it without
+        slowing down the site. I chose to use AWS because it is a reliable and scalable platform that can handle complex data sets like the one I was
+        working with.
       </p>
       <img src={arcitecture_img} className='w-100' />
+      <p>
+        Overall, my goal for this tool was to promote transparency and accountability through the visualization of network data. I wanted to create a
+        simple and user-friendly solution that would allow anyone to easily visualize their own data without the need to set up a complex database. I
+        believe that this tool can be a valuable resource for anyone looking to understand and analyze network data in an intuitive and visually
+        appealing way.
+      </p>
     </div>
   );
 };
