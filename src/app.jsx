@@ -188,7 +188,7 @@ function App() {
         <Container fluid>
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav ps-5'>
-            <Nav >
+            <Nav>
               <Nav.Item className=' btn btn-light nav_button mx-auto align-middle resume_button'>
                 <a href={curriculum} target='_Blank' classname='resume-link' style={{ textDecoration: "none", color: "black" }}>
                   Resume
@@ -343,30 +343,32 @@ function App() {
             About me.
           </h2>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
-            I am a junior software engineer from Spain looking to work in this industry I love. As a natural-born problem-solver, I am passionate
-            about dealing with challenges by approaching them through various points of view, helping me solve them by reframing them.
+            As a junior software engineer from Spain, I am excited to work in the industry I love. I am a natural-born problem-solver and am
+            passionate about approaching challenges from different points of view to find creative solutions.
           </p>
+
           <h3 data-aos='fade-left' className='display-5'>
-            A short story
+            My story
           </h3>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
-            As a kid being taken to technology summer camps, I quickly found out my vocation was in technology, I jumped from tearing apart old toys
-            for spare motors to building Lego robots and so on hopping between activities, each time getting closer to finding out what I wanted to
-            be, until I found software engineering.
+            As a child, I was fortunate to attend technology summer camps which sparked my interest in technology. I enjoyed tearing apart old toys
+            for spare motors and building Lego robots, and through these activities, I discovered my passion for software engineering.
           </p>
-          <h3 data-aos='fade-left' className='display-5'>
-            My skills
-          </h3>
+          <h2 data-aos='fade-left' className='display-3 col'>
+            My skills.
+          </h2>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
-            All tho I am mostly skilled with frontend tools as you can see below, All tho I am looking to expand my skill set into backend skills /
-            cloud computing
+            I am skilled in a wide range of areas and am able to quickly learn and adapt to new tools. However, my main skills lie in frontend and
+            server-side development, as I have professional experience in both. I am currently working on a personal web3 project which allows me to
+            further develop my skills.
           </p>
           <h3 data-aos='fade-left' className='display-5'>
             My favorite quality
           </h3>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
-            My problem-solving skills are central to my profile, my most crucial quality in my opinion is my initiative. It has been what has allowed
-            me to learn so much by my own.
+            One of my favorite qualities as a software engineer is my problem-solving skills. However, I believe my most important quality is my
+            initiative and passion for learning new things in tech. I am constantly seeking out opportunities to expand my knowledge and stay
+            up-to-date on the latest developments in the industry.
           </p>
         </div>
         <div className='col   d-flex-inline align-self-top img-col '>
