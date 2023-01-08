@@ -8,7 +8,7 @@ import { MdEmail } from "react-icons/md";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import emailjs from "@emailjs/browser";
-import curriculum from "./Resources/mateocovachocurriculum.pdf";
+import curriculum from "./Resources/Mateo_Covacho_resume.pdf";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
 import { BrowserRouter, Routes, Route, Link, useNavigate } from "react-router-dom";
@@ -25,6 +25,7 @@ import Modal from "react-bootstrap/Modal";
 import useSpline from "@splinetool/r3f-spline";
 import me from "./Resources/imgs/me.jpg";
 import portfolio from "./Resources/imgs/profolio.PNG";
+import leak_shield_img from "./Resources/imgs/LeakShield.png";
 import site_tech_img from "./Resources/imgs/site.png";
 import server_tech_img from "./Resources/imgs/computer.png";
 import dev_ops_tech_img from "./Resources/imgs/application.png";
@@ -38,6 +39,7 @@ import reactjs_logo from "./Resources/logos/front/reactjs-icon.svg";
 import svelte_logo from "./Resources/logos/front/svelte_logo.svg";
 import threejs_logo from "./Resources/logos/front/threejs-logo.svg";
 import figma_logo from "./Resources/logos/front/figma-icon.svg";
+import blueprintjs_logo from "./Resources/logos/front/blueprintjs_logo.svg";
 
 import amazon_web_services_logo from "./Resources/logos/back/awslogo.svg";
 import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
@@ -50,6 +52,8 @@ import docker_logo from "./Resources/logos/back/docker-icon.svg";
 import netlify_logo from "./Resources/logos/back/netlify.svg";
 import bash_logo from "./Resources/logos/dev/bash.svg";
 import vercel_logo from "./Resources/logos/back/vercel.svg";
+import ethers_logo from "./Resources/logos/back/ethersjs-icon.svg";
+import next_js_logo from "./Resources/logos/back/next-js.svg";
 
 import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
 import github_logo from "./Resources/logos/dev/github.png";
@@ -167,13 +171,24 @@ function App() {
       tags: ["Graph search algorithms", "Cloud computing", "AWS Lambda", "Third party api", "Big data processing", "Data visualization", "vis.js"],
     },
     {
+      img: leak_shield_img,
+      modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
+      tittle: "Leak shield",
+      link: "https://leak-shield.vercel.app/",
+      body: "LeakShield is a tool that helps content creators and managers protect their content and revenue from unauthorized access or distribution. By embedding each copy of content with a unique identifier. LeakShield can then trace the source of unauthorized copies and take action to protect the content. It's implemented as a software application or service and can be integrated into social media plataforms.",
+      tech: [blueprintjs_logo, next_js_logo, reactjs_logo, ethers_logo, javascript_logo, bootstrap_logo, css_logo, html5_logo],
+      techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "ethers_logo", "javascript_logo", "bootstrap_logo", "css_logo", "html5_logo"],
+      github: "https://github.com/mateo-covacho/portfolio-mk2",
+      tags: ["Frontend design"],
+    },
+    {
       img: portfolio,
       modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
       tittle: "Portfolio",
-      link: "https://mateo-covacho.vercel.app/",
+      link: "https://mateocovacho.com/",
       body: "My personal portfolio that you are in right now. I use this project to showcase my project and elaborate on my development process for each of them",
-      tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo, threejs_logo],
-      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo", "threejs_logo"],
+      tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo],
+      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
       github: "https://github.com/mateo-covacho/portfolio-mk2",
       tags: ["Frontend design"],
     },
@@ -384,45 +399,49 @@ function App() {
               <h5 className='card-title '>The tech I use while building client-side applications</h5>
               <p className='card-text '>These are some of the technologies I use to design & build responsive web applications.</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-                <div data-aos='fade-up' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
-                    <img className='my-auto tech-logo' height='50vw' src={html5_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={html5_logo} alt='html5_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://www.w3.org/Style/CSS/Overview.en.html'>
-                    <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='css_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.typescriptlang.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='typescript_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://reactjs.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='reactjs_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://www.javascript.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='javascript_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://getbootstrap.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={bootstrap_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={bootstrap_logo} alt='bootstrap_logo' />
                   </a>
                 </div>
-
-                <div data-aos='fade-down' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://svelte.dev/'>
-                    <img className='my-auto tech-logo' height='50vw' src={svelte_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={svelte_logo} alt='svelte_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://threejs.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={threejs_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={threejs_logo} alt='threejs_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <a target='_blank' href='https://blueprintjs.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={blueprintjs_logo} alt='blueprintjs_logo' />
                   </a>
                 </div>
               </div>
@@ -434,49 +453,59 @@ function App() {
               <h5 className='card-title'>Tech I use for building fast and scalable backend applications</h5>
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://aws.amazon.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='logo' style={{}} />
+                    <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='amazon_web_services_logo' style={{}} />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://nextjs.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={next_js_logo} alt='next_js_logo' style={{}} />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://docs.ethers.org/v5/'>
+                    <img className='my-auto tech-logo' height='50vw' src={ethers_logo} alt='ethers_logo' style={{}} />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://nodejs.org/en/'>
-                    <img className='my-auto tech-logo' height='50vw' src={nodejs_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={nodejs_logo} alt='nodejs_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.python.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='python_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.java.com/en/'>
-                    <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='java_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://firebase.google.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='firebase_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.serverless.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={serverless_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={serverless_logo} alt='serverless_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.docker.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='docker_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.netlify.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='netlify_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://vercel.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='vercel_logo' />
                   </a>
                 </div>
               </div>
@@ -490,39 +519,39 @@ function App() {
                 These are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster
               </p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://git-scm.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={git_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={git_logo} alt='git_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight  '>
+                <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
-                    <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='figma_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.npmjs.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='npm_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://github.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='github_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://code.visualstudio.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={vscode_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={vscode_logo} alt='vscode_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-down' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://webpack.js.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={webpack_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={webpack_logo} alt='webpack_logo' />
                   </a>
                 </div>
-                <div data-aos='fade-up' className='p-2 bd-highlight'>
+                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.gnu.org/software/bash/'>
-                    <img className='my-auto tech-logo' height='50vw' src={bash_logo} alt='logo' />
+                    <img className='my-auto tech-logo' height='50vw' src={bash_logo} alt='bash_logo' />
                   </a>
                 </div>
               </div>
@@ -546,7 +575,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={html5_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("html5_logo");
                       }}
@@ -557,7 +586,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={css_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("css_logo");
                       }}
@@ -568,7 +597,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={reactjs_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("reactjs_logo");
                       }}
@@ -579,7 +608,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={javascript_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("javascript_logo");
                       }}
@@ -590,7 +619,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={bootstrap_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("bootstrap_logo");
                       }}
@@ -601,7 +630,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={svelte_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("svelte_logo");
                       }}
@@ -612,7 +641,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={threejs_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("threejs_logo");
                       }}
@@ -623,7 +652,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={amazon_web_services_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("amazon_web_services_logo");
                       }}
@@ -634,7 +663,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={firebase_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("firebase_logo");
                       }}
@@ -645,7 +674,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={nodejs_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("nodejs_logo");
                       }}
@@ -656,7 +685,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={python_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("python_logo");
                       }}
@@ -667,7 +696,7 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={serverless_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("serverless_logo");
                       }}
@@ -678,9 +707,42 @@ function App() {
                       className='my-auto tech-logo'
                       height='40vw'
                       src={docker_logo}
-                      alt='logo'
+                      alt='                    '
                       onClick={() => {
                         filter_projects_by("docker_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={blueprintjs_logo}
+                      alt='                    '
+                      onClick={() => {
+                        filter_projects_by("blueprintjs_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={next_js_logo}
+                      alt='                    '
+                      onClick={() => {
+                        filter_projects_by("next_js_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={ethers_logo}
+                      alt='                    '
+                      onClick={() => {
+                        filter_projects_by("ethers_logo");
                       }}
                     />
                   </Nav.Item>
@@ -719,7 +781,7 @@ function App() {
                         {project.tech.map((technology, technology_index) => {
                           return (
                             <Nav.Item className='p-2 bd-highlight  ' key={technology_index}>
-                              <img className='my-auto ' height='30vw' src={technology} alt='logo' />
+                              <img className='my-auto ' height='30vw' src={technology} alt='technology' />
                             </Nav.Item>
                           );
                         })}
