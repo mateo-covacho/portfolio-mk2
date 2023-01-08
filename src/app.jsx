@@ -180,7 +180,7 @@ function App() {
     },
     {
       img: leak_shield_img,
-      modalComponent: <Portfolio github='https://github.com/mateo-covacho/leak-shield' />,
+      modalComponent: <LeakShield github='https://github.com/mateo-covacho/leak-shield' />,
       tittle: "Leak shield",
       link: "https://leak-shield.vercel.app/",
       body: "LeakShield is a tool that helps content creators and managers protect their content and revenue from unauthorized access or distribution. By embedding each copy of content with a unique identifier. LeakShield can then trace the source of unauthorized copies and take action to protect the content. It's implemented as a software application or service and can be integrated into social media plataforms.",
@@ -191,7 +191,7 @@ function App() {
     },
     {
       img: portfolio,
-      modalComponent: <LeakShield github='https://github.com/mateo-covacho/portfolio-mk2' />,
+      modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
       tittle: "Portfolio",
       link: "https://mateocovacho.com/",
       body: "My personal portfolio that you are in right now. I use this project to showcase my project and elaborate on my development process for each of them",
