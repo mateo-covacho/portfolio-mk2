@@ -23,7 +23,7 @@ const Networkexplorer = () => {
       </p>
       <p>
         Overall, LeakShield provides a robust and flexible solution for content creators and managers looking to protect their content and revenue
-        from unauthorized access or distribution. By leveraging advanced technical capabilities and a
+        from unauthorized access or distribution. 
       </p>
     </div>
   );
