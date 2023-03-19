@@ -102,7 +102,7 @@ header {
 }
 
 .blacktext {
-  color: black;
+  color: black !important;
 }
 
 .mosepointer {
@@ -149,7 +149,7 @@ header {
 }
 
 footer {
-  min-height: 60vh;
+  min-height: 30vh;
   width: 100vw !important;
   background-color: cornflowerblue;
   z-index: 5;
@@ -195,4 +195,24 @@ footer {
 
 .form-control {
   border: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.3s;
+  text-decoration: none !important;
+}
+
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+footer * {
+  color: rgb(255, 255, 255) !important;
+}
+
+.red {
+  background-color: var(--color1) !important;
 }

@@ -3,6 +3,7 @@ import { Suspense, useEffect, useRef, useState, useCallback } from "react";
 import { Canvas, useFrame } from "@react-three/fiber";
 import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
+import { RiSendPlaneFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
 
 import Aos from "aos";
@@ -134,7 +135,7 @@ function App() {
       "template_wu19pwn",
       {
         from_name: name,
-        subject: subject,
+        subject: "Email from " + name + "",
         message: message,
         reply_to_email: email,
       },
@@ -551,11 +552,6 @@ function App() {
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://webpack.js.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={webpack_logo} alt='webpack_logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.gnu.org/software/bash/'>
                     <img className='my-auto tech-logo' height='50vw' src={bash_logo} alt='bash_logo' />
                   </a>
@@ -833,184 +829,118 @@ function App() {
         </Row>
       </section>
       <div>
-      <footer class="w-100 py-4 flex-shrink-0">
-        <div class="container py-4">
-            <div class="row gy-4 gx-5">
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="h1 text-white">FB.</h5>
-                    <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                    <p class="small text-muted mb-0">&copy; Copyrights. All rights reserved. <a class="text-primary" href="#">Bootstrapious.com</a></p>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="text-white mb-3">This page</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About</a></li>
-                        <li><a href="#">Get started</a></li>
-                        <li><a href="#">FAQ</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-2 col-md-6">
-                    <h5 class="text-white mb-3">Quick links</h5>
-                    <ul class="list-unstyled text-muted">
-                        <li><a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com'>Mail</a></li>
-                        <li><a href="https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/">Linkedin</a></li>
-                        <li><a href="https://twitter.com/covacho_dev">Twitter</a></li>
-                        <li><a href="https://stackoverflow.com/users/18017427/mateo-covacho">StacOoverflow</a></li>
-                        <li><a href="https://github.com/mateo-covacho">Github</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4 col-md-6">
-                    <h5 class="text-white mb-3">Newsletter</h5>
-                    <p class="small text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt.</p>
-                    <form action="#">
-                        <div class="input-group mb-3">
-                            <input class="form-control" type="text" placeholder="Recipient's username" aria-label="Recipient's username" aria-describedby="button-addon2"/>
-                            <button class="btn btn-primary" id="button-addon2" type="button"><i class="fas fa-paper-plane"></i></button>
-                        </div>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </footer>
-       <footer style={{ position: "absolute" }} ref={contact} className='container-fluid w-100 p-5'>
-          <>
-            {/*Section heading*/}
-            <h2 className='display-3 wrap mx-auto mb-5 '>Contact me</h2>
-            {/*Section description*/}
-            <p className='text-center w-responsive mx-auto mb-5'>
-              Do you have any questions? Please do not hesitate to contact me directly. I will get back to you within a matter of hours to help you.
-            </p>
-            <div className='row'>
-              {/*Grid column*/}
-              <div className='col-md-9 mb-md-0 mb-5'>
-                <form id='contact-form' name='contact-form' action='mail.php' method='POST'>
-                  {/*Grid row*/}
-                  <div className='row'>
-                    {/*Grid column*/}
-                    <div className='col-md-6'>
-                      <div className='md-form mb-0'>
-                        <label htmlFor='name' className=''>
-                          Your name
-                        </label>
-                        <input
-                          type='text'
-                          id='name'
-                          name='name'
-                          className='form-control'
-                          value={name}
-                          onChange={(e) => {
-                            setName(e.target.value);
-                          }}
-                        />
-                      </div>
-                    </div>
-                    {/*Grid column*/}
-                    {/*Grid column*/}
-                    <div className='col-md-6'>
-                      <div className='md-form mb-0'>
-                        <label htmlFor='email' className=''>
-                          Your email
-                        </label>
-                        <input
-                          type='text'
-                          id='email'
-                          name='email'
-                          className='form-control'
-                          value={email}
-                          onChange={(e) => {
-                            setEmail(e.target.value);
-                          }}
-                        />
-                      </div>
-                    </div>
-                    {/*Grid column*/}
+        <footer style={{ position: "absolute" }} ref={contact} className='container-fluid w-100 p-5'>
+          <div class='container py-4'>
+            <div class='row'>
+              <div class='col-lg-4 col-md-6'>
+                <h5 class='h1 text-white'>About me</h5>
+                <p class=' '>
+                  Do you have any questions? Please do not hesitate to contact me directly. I will get back to you within a matter of hours to help
+                  you.
+                </p>
+              </div>
+              {/* <div class='col-lg-2 col-md-6'>
+                <h5 class='text-white mb-3'>This page</h5>
+                <ul class='list-unstyled '>
+                  <li>
+                    <a href='#'>Home</a>
+                  </li>
+                  <li>
+                    <a href='#'>About</a>
+                  </li>
+                  <li>
+                    <a href='#'>Get started</a>
+                  </li>
+                  <li>
+                    <a href='#'>FAQ</a>
+                  </li>
+                </ul>
+              </div> */}
+              <div class='col-lg-2 col-md-6'>
+                <h5 class='text-white mb-3'>Quick links</h5>
+                <ul class='list-unstyled '>
+                  <li>
+                    <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com'>
+                      Mail
+                    </a>
+                  </li>
+                  <li>
+                    <a href='https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/'>Linkedin</a>
+                  </li>
+                  <li>
+                    <a href='https://twitter.com/covacho_dev'>Twitter</a>
+                  </li>
+                  <li>
+                    <a href='https://stackoverflow.com/users/18017427/mateo-covacho'>StacOoverflow</a>
+                  </li>
+                  <li>
+                    <a href='https://github.com/mateo-covacho'>Github</a>
+                  </li>
+                </ul>
+              </div>
+              <div class='col-lg-4 col-md-6'>
+                <h5 class='text-white mb-3'>Contact me </h5>
+                <p class=' '>Send me an email </p>
+
+                <div className='row'>
+                  <div className='col'>
+                    <input
+                      class='form-control blacktext'
+                      type='text'
+                      placeholder='Name'
+                      aria-label="Recipient's username"
+                      aria-describedby='button-addon2'
+                      color='black'
+                      value={name}
+                      onChange={(e) => setName(e.target.value)}
+                    />
                   </div>
-                  {/*Grid row*/}
-                  <div className='row'>
-                    <div className='col-md-12'>
-                      <div className='md-form mb-0'>
-                        <label htmlFor='subject' className=''>
-                          Subject
-                        </label>
-                        <input
-                          type='text'
-                          id='subject'
-                          name='subject'
-                          className='form-control'
-                          value={subject}
-                          onChange={(e) => {
-                            setSubject(e.target.value);
-                          }}
-                        />
-                      </div>
-                    </div>
+                  <div className='col'>
+                    <input
+                      class='form-control blacktext'
+                      type='text'
+                      placeholder='Email'
+                      aria-label="Recipient's username"
+                      aria-describedby='button-addon2'
+                      color='black'
+                      value={email}
+                      onChange={(e) => setEmail(e.target.value)}
+                    />
                   </div>
-                  {/*Grid row*/}
-                  <div className='row'>
-                    {/*Grid column*/}
-                    <div className='col-md-12'>
-                      <div className='md-form'>
-                        <label htmlFor='message'>Your message</label>
-                        <textarea
-                          type='text'
-                          id='message'
-                          name='message'
-                          rows={5}
-                          className='form-control md-textarea'
-                          defaultValue={""}
-                          value={message}
-                          onChange={(e) => {
-                            setMessage(e.target.value);
-                          }}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                  {/*Grid row*/}
-                </form>
-                <div className='text-center text-md-left mt-3'>
-                  <button
-                    id='fcf-button'
-                    className='btn  btn-success'
-                    onClick={() => {
-                      if (name && email.match(validRegex) && message) {
+                </div>
+                <br />
+                <div className='row'>
+                  <div class='input-group mb-3'>
+                    <input
+                      class='form-control blacktext'
+                      type='text'
+                      placeholder='Message'
+                      aria-label="Recipient's username"
+                      aria-describedby='button-addon2'
+                      color='black'
+                      value={message}
+                      onChange={(e) => setMessage(e.target.value)}
+                    />
+                    <button
+                      class='btn btn-primary red'
+                      id='button-addon2'
+                      type='button'
+                      onClick={() => {
                         handleContactMe();
                         setName("");
                         setEmail("");
                         setMessage("");
-                        setSubject("");
-                      } else if (name && !email.match(validRegex) && message && subject) {
-                        alert("Please inut a valid email");
-                      } else {
-                        alert("Please fill all fields");
-                      }
-                    }}
-                  >
-                    Send Message
-                  </button>
+                      }}
+                    >
+                      <i class='fas fa-paper-plane'>
+                        <RiSendPlaneFill />
+                      </i>
+                    </button>
+                  </div>
                 </div>
-                <div className='status' />
-              </div>
-              {/*Grid column*/}
-              <div className='col-md-3 text-center'>
-                <ul className='list-unstyled mb-0'>
-                  <li>
-                    <i className='fas fa-map-marker-alt fa-2x' />
-                    <p>Madrid, 28003, Spain</p>
-                  </li>
-                  <li>
-                    <i className='fas fa-phone mt-4 fa-2x' />
-                    <p>+34 695 406 930</p>
-                  </li>
-                  <li>
-                    <i className='fas fa-envelope mt-4 fa-2x' />
-                    <p>mateocovacho@gmail.com</p>
-                  </li>
-                </ul>
               </div>
             </div>
-          </>
+          </div>
         </footer>
       </div>
     </div>
