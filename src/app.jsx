@@ -24,7 +24,6 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import LeakShield from "./components/LeakShield";
 
-import useSpline from "@splinetool/r3f-spline";
 import me from "./Resources/imgs/me.jpg";
 import portfolio from "./Resources/imgs/profolio.PNG";
 import leak_shield_img from "./Resources/imgs/LeakShield.png";
@@ -63,6 +62,7 @@ import npm_logo from "./Resources/logos/dev/npmjs-ar21.svg";
 //import postman_logo from "./Resources/logos/dev/getpostman-icon.svg";
 import webpack_logo from "./Resources/logos/dev/js_webpack-ar21.svg";
 import vscode_logo from "./Resources/logos/dev/0aea25bb-27bb-427f-8d65-f999bf0cba67.svg";
+import ReCAPTCHA from "react-google-recaptcha";
 
 import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
@@ -79,6 +79,7 @@ function App() {
   const [email, setEmail] = useState();
   const [subject, setSubject] = useState();
   const [message, setMessage] = useState();
+  const [recaptcha, setRecaptcha] = useState(false);
   const validRegex = /^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/;
 
   const resume = useRef(null);
@@ -141,6 +142,11 @@ function App() {
       },
       "_QHH4FdyK5NUWXsNK"
     );
+  }
+
+  function handleRecaptcha(value) {
+    console.log(value);
+    setRecaptcha(value);
   }
 
   var [projects, setProjects] = useState([
@@ -937,6 +943,12 @@ function App() {
                       </i>
                     </button>
                   </div>
+                  <ReCAPTCHA
+                    sitekey='6LcozRUlAAAAAOg7Sp4C2C77MOpNHetLCYPO6rZB'
+                    onChange={() => {
+                      handleRecaptcha();
+                    }}
+                  />
                 </div>
               </div>
             </div>
