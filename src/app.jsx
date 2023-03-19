@@ -944,7 +944,7 @@ function App() {
                     </button>
                   </div>
                   <ReCAPTCHA
-                    sitekey='6LcozRUlAAAAAOg7Sp4C2C77MOpNHetLCYPO6rZB'
+                    sitekey='6LcozRUlAAAAADjHmYiU-bXOtieW-t81o9bqef7R'
                     onChange={() => {
                       handleRecaptcha();
                     }}
