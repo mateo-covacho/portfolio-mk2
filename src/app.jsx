@@ -131,26 +131,26 @@ function App() {
     }
   }
   function handleContactMe() {
-    emailjs.send(
-      "service_ykrrk11",
-      "template_wu19pwn",
-      {
-        from_name: name,
-        subject: "Email from " + name + "",
-        message: message,
-        reply_to_email: email,
-      },
-      "_QHH4FdyK5NUWXsNK"
-    );
-  }
-
-  function handleRecaptcha(value) {
-    setRecaptcha(value);
-    console.log(recaptcha);
+    if (recaptcha) {
+      emailjs.send(
+        "service_ykrrk11",
+        "template_wu19pwn",
+        {
+          from_name: name,
+          subject: "Email from " + name + "",
+          message: message,
+          reply_to_email: email,
+        },
+        "_QHH4FdyK5NUWXsNK"
+      );
+    } else {
+      alert("Please verify that you are not a robot");
+    }
   }
 
   function onChange(value) {
     console.log("Captcha value:", value);
+    setRecaptcha(value);
   }
 
   var [projects, setProjects] = useState([
