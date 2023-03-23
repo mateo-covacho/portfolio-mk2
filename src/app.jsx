@@ -145,8 +145,12 @@ function App() {
   }
 
   function handleRecaptcha(value) {
-    console.log(value);
     setRecaptcha(value);
+    console.log(recaptcha);
+  }
+
+  function onChange(value) {
+    console.log("Captcha value:", value);
   }
 
   var [projects, setProjects] = useState([
@@ -943,12 +947,7 @@ function App() {
                       </i>
                     </button>
                   </div>
-                  <ReCAPTCHA
-                    sitekey='6LdO2hUlAAAAAOYBNZsijaYNNH-XCd-bNTe4j0Zh'
-                    onChange={() => {
-                      handleRecaptcha();
-                    }}
-                  />
+                  <ReCAPTCHA sitekey='6LdO2hUlAAAAAOYBNZsijaYNNH-XCd-bNTe4j0Zh' onChange={onChange} />
                 </div>
               </div>
             </div>
