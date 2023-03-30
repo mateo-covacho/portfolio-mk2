@@ -68,7 +68,7 @@ import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
 import Networkexplorer from "./components/Networkexplorer.jsx";
 import Portfolio from "./components/Portfolio.jsx";
-
+import { Divider, Space, Tag } from "antd";
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
   const [showPortfolio, setShowPortfolio] = useState(false);
@@ -188,6 +188,7 @@ function App() {
       ],
       github: "https://github.com/mateo-covacho/graph-app",
       tags: ["Graph search algorithms", "Cloud computing", "AWS Lambda", "Third party api", "Big data processing", "Data visualization", "vis.js"],
+      status: "Finished & upkeeping",
     },
     {
       img: leak_shield_img,
@@ -199,6 +200,7 @@ function App() {
       techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "ethers_logo", "javascript_logo", "bootstrap_logo", "css_logo", "html5_logo"],
       github: "https://github.com/mateo-covacho/portfolio-mk2",
       tags: ["Frontend design"],
+      status: "Paused",
     },
     {
       img: portfolio,
@@ -210,6 +212,7 @@ function App() {
       techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
       github: "https://github.com/mateo-covacho/portfolio-mk2",
       tags: ["Frontend design"],
+      status: "Finished",
     },
   ]);
 
@@ -777,6 +780,24 @@ function App() {
                   >
                     <Card.Img variant='top' src={project.img} style={{ maxHeight: "330px" }} />
                     <Card.Body>
+                      <Space size={[0, 8]} wrap>
+                        {/* 
+												<Tag color='magenta'>magenta</Tag>
+                        <Tag color='red'>red</Tag>
+                        <Tag color='volcano'>volcano</Tag>
+                        <Tag color='orange'>orange</Tag>
+                        <Tag color='gold'>gold</Tag>
+                        <Tag color='lime'>lime</Tag>
+                        <Tag color='green'>green</Tag>
+                        <Tag color='cyan'>cyan</Tag>
+                        <Tag color='blue'>blue</Tag>
+                        <Tag color='geekblue'>geekblue</Tag>
+                        <Tag color='purple'>purple</Tag> 
+											*/}
+                        {project.status === "Finished & upkeeping" ? <Tag color='green'>{project.status}</Tag> : null}
+                        {project.status === "Paused" ? <Tag color='purple'>{project.status}</Tag> : null}
+                        {project.status === "Finished" ? <Tag color='gold'>{project.status}</Tag> : null}
+                      </Space>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
                       <Card.Text style={{ minHeight: "100px" }}>{project.body}</Card.Text>
