@@ -1,7 +1,5 @@
 import "./app.css";
 import { Suspense, useEffect, useRef, useState, useCallback } from "react";
-import { Canvas, useFrame } from "@react-three/fiber";
-import { EffectComposer, Bloom } from "@react-three/postprocessing";
 import { BsLinkedin, BsTwitter, BsStackOverflow, BsGithub } from "react-icons/bs";
 import { RiSendPlaneFill } from "react-icons/ri";
 import { MdEmail } from "react-icons/md";
@@ -27,6 +25,7 @@ import LeakShield from "./components/LeakShield";
 import me from "./Resources/imgs/me.jpg";
 import portfolio from "./Resources/imgs/profolio.PNG";
 import leak_shield_img from "./Resources/imgs/LeakShield.png";
+import integrity_tracker_img from "./Resources/imgs/integritytracker.png";
 import site_tech_img from "./Resources/imgs/site.png";
 import server_tech_img from "./Resources/imgs/computer.png";
 import dev_ops_tech_img from "./Resources/imgs/application.png";
@@ -42,8 +41,9 @@ import threejs_logo from "./Resources/logos/front/threejs-logo.svg";
 import figma_logo from "./Resources/logos/front/figma-icon.svg";
 import blueprintjs_logo from "./Resources/logos/front/blueprintjs_logo.svg";
 
-import amazon_web_services_logo from "./Resources/logos/back/awslogo.svg";
 import firebase_logo from "./Resources/logos/back/firebase-icon.svg";
+import supabase_logo from "./Resources/logos/back/supabase-icon.svg";
+import postgres_logo from "./Resources/logos/back/postgres_logo.png";
 import nodejs_logo from "./Resources/logos/back/nodejs-icon.svg";
 import typescript_logo from "./Resources/logos/back/typescrip-logo.svg";
 import python_logo from "./Resources/logos/back/python-icon.svg";
@@ -55,6 +55,7 @@ import bash_logo from "./Resources/logos/dev/bash.svg";
 import vercel_logo from "./Resources/logos/back/vercel.svg";
 import ethers_logo from "./Resources/logos/back/ethersjs-icon.svg";
 import next_js_logo from "./Resources/logos/back/next-js.svg";
+import amazon_web_services_logo from "./Resources/logos/back/awslogo.svg";
 
 import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
 import github_logo from "./Resources/logos/dev/github.png";
@@ -68,6 +69,8 @@ import network_explorer_img from "./Resources/imgs/network_explorer.PNG";
 
 import Networkexplorer from "./components/Networkexplorer.jsx";
 import Portfolio from "./components/Portfolio.jsx";
+import IntegrityTracker from "./components/IntegrityTracker.jsx";
+
 import { Divider, Space, Tag } from "antd";
 function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
@@ -191,6 +194,18 @@ function App() {
       status: "Finished & upkeeping",
     },
     {
+      img: integrity_tracker_img,
+      modalComponent: <IntegrityTracker github='https://github.com/mateo-covacho/integrity-tracker' />,
+      tittle: "Integrity Tracker",
+      link: "https://integrity-tracker.vercel.app/",
+      body: "Integrity Tracker is a platform that encourages transparency and accountability among public figures. It provides real-time fact-checking and evaluation of public figures' claims. Users can participate by voting on the veracity of these claims and providing feedback. In doing so, they contribute to the 'reputation score' of public figures. This score represents the reliability of their public statements over time.",
+      tech: [blueprintjs_logo, next_js_logo, reactjs_logo, supabase_logo, javascript_logo, postgres_logo, css_logo, html5_logo],
+      techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "supabase_logo", "javascript_logo", "postgres_logo", "css_logo", "html5_logo"],
+      github: "https://github.com/username/integrity-tracker",
+      tags: ["Frontend design", "Backend development", "Database Management"],
+      status: "In progress",
+    },
+    {
       img: leak_shield_img,
       modalComponent: <LeakShield github='https://github.com/mateo-covacho/leak-shield' />,
       tittle: "Leak shield",
@@ -202,18 +217,7 @@ function App() {
       tags: ["Frontend design"],
       status: "Paused",
     },
-		{
-			img: integrity_tracker_img,
-			modalComponent: <IntegrityTracker github='https://github.com/username/integrity-tracker' />,
-			tittle: "Integrity Tracker",
-			link: "https://integrity-tracker.vercel.app/",
-			body: "Integrity Tracker is a platform that encourages transparency and accountability among public figures. It provides real-time fact-checking and evaluation of public figures' claims. Users can participate by voting on the veracity of these claims and providing feedback. In doing so, they contribute to the 'reputation score' of public figures. This score represents the reliability of their public statements over time.",
-			tech: [blueprintjs_logo, next_js_logo, reactjs_logo, supabase_logo, javascript_logo, postgrest_logo, css_logo, html5_logo],
-			techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "supabase_logo", "javascript_logo", "postgrest_logo", "css_logo", "html5_logo"],
-			github: "https://github.com/username/integrity-tracker",
-			tags: ["Frontend design", "Backend development", "Database Management"],
-			status: "In progress",
-		}
+
     {
       img: portfolio,
       modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
@@ -768,6 +772,28 @@ function App() {
                       alt='                    '
                       onClick={() => {
                         filter_projects_by("ethers_logo");
+                      }}
+                    />
+                  </Nav.Item>{" "}
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={postgres_logo}
+                      alt='                    '
+                      onClick={() => {
+                        filter_projects_by("postgres_logo");
+                      }}
+                    />
+                  </Nav.Item>
+                  <Nav.Item className='p-2 bd-highlight'>
+                    <img
+                      className='my-auto tech-logo'
+                      height='40vw'
+                      src={supabase_logo}
+                      alt='                    '
+                      onClick={() => {
+                        filter_projects_by("supabase_logo");
                       }}
                     />
                   </Nav.Item>
