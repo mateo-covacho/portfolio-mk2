@@ -202,6 +202,18 @@ function App() {
       tags: ["Frontend design"],
       status: "Paused",
     },
+		{
+			img: integrity_tracker_img,
+			modalComponent: <IntegrityTracker github='https://github.com/username/integrity-tracker' />,
+			tittle: "Integrity Tracker",
+			link: "https://integrity-tracker.vercel.app/",
+			body: "Integrity Tracker is a platform that encourages transparency and accountability among public figures. It provides real-time fact-checking and evaluation of public figures' claims. Users can participate by voting on the veracity of these claims and providing feedback. In doing so, they contribute to the 'reputation score' of public figures. This score represents the reliability of their public statements over time.",
+			tech: [blueprintjs_logo, next_js_logo, reactjs_logo, supabase_logo, javascript_logo, postgrest_logo, css_logo, html5_logo],
+			techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "supabase_logo", "javascript_logo", "postgrest_logo", "css_logo", "html5_logo"],
+			github: "https://github.com/username/integrity-tracker",
+			tags: ["Frontend design", "Backend development", "Database Management"],
+			status: "In progress",
+		}
     {
       img: portfolio,
       modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
