@@ -833,6 +833,8 @@ function App() {
                         {project.status === "Finished & upkeeping" ? <Tag color='green'>{project.status}</Tag> : null}
                         {project.status === "Paused" ? <Tag color='purple'>{project.status}</Tag> : null}
                         {project.status === "Finished" ? <Tag color='gold'>{project.status}</Tag> : null}
+												{project.status === "In progress" ? <Tag color='blue'>{project.status}</Tag> : null}
+
                       </Space>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
