@@ -76,6 +76,8 @@ function App() {
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
   const [showPortfolio, setShowPortfolio] = useState(false);
   const [showLeakShield, setShowLeakShield] = useState(false);
+  const [showIntegrityTracker, setShowIntegrityTracker] = useState(false);
+
   const [filter, setFilter] = useState(null);
   const form = useRef();
   const [name, setName] = useState();
@@ -113,6 +115,8 @@ function App() {
       setShowPortfolio(false);
     } else if (name == "Leak shield") {
       setShowLeakShield(false);
+    } else if (name == "Integrity Tracker") {
+      setShowIntegrityTracker(false);
     }
   }
   function handleShow(name) {
@@ -122,6 +126,8 @@ function App() {
       setShowPortfolio(true);
     } else if (name == "Leak shield") {
       setShowLeakShield(true);
+    } else if (name == "Integrity Tracker") {
+      setShowIntegrityTracker(true);
     }
   }
   function getShowModal(name) {
@@ -131,6 +137,8 @@ function App() {
       return showPortfolio;
     } else if (name == "Leak shield") {
       return showLeakShield;
+    } else if (name == "Integrity Tracker") {
+      return showIntegrityTracker;
     }
   }
   function handleContactMe() {
@@ -235,7 +243,6 @@ function App() {
   useEffect(() => {
     Aos.init({ duration: 1500 });
   }, []);
-	
   return (
     <div className='App container-fluid p-0' style={{ position: "absolute", width: "100vw" }}>
       <Navbar bg='light' expand='md' sticky='top' classname='ms-5'>
@@ -397,9 +404,9 @@ function App() {
             passionate about approaching challenges from different points of view to find creative solutions.
           </p>
 
-          <h3 data-aos='fade-left' className='display-5'>
+          <h2 data-aos='fade-left' className='display-5'>
             My story
-          </h3>
+          </h2>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
             As a child, I was fortunate to attend technology summer camps which sparked my interest in technology. I enjoyed tearing apart old toys
             for spare motors and building Lego robots, and through these activities, I discovered my passion for software engineering.
@@ -412,9 +419,9 @@ function App() {
             server-side development, as I have professional experience in both. I am currently working on a personal web3 project which allows me to
             further develop my skills.
           </p>
-          <h3 data-aos='fade-left' className='display-5'>
+          <h2 data-aos='fade-left' className='display-5'>
             My favorite quality
-          </h3>
+          </h2>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
             One of my favorite qualities as a software engineer is my problem-solving skills. However, I believe my most important quality is my
             initiative and passion for learning new things in tech. I am constantly seeking out opportunities to expand my knowledge and stay
