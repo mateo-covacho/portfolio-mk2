@@ -235,6 +235,7 @@ function App() {
   useEffect(() => {
     Aos.init({ duration: 1500 });
   }, []);
+	
   return (
     <div className='App container-fluid p-0' style={{ position: "absolute", width: "100vw" }}>
       <Navbar bg='light' expand='md' sticky='top' classname='ms-5'>
@@ -433,6 +434,16 @@ function App() {
               <h5 className='card-title '>The tech I use while building client-side applications</h5>
               <p className='card-text '>These are some of the technologies I use to design & build responsive web applications.</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.typescriptlang.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='typescript_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight  '>
+                  <a target='_blank' href='https://www.javascript.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='javascript_logo' />
+                  </a>
+                </div>
                 <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
                     <img className='my-auto tech-logo' height='50vw' src={html5_logo} alt='html5_logo' />
@@ -443,19 +454,9 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='css_logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.typescriptlang.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='typescript_logo' />
-                  </a>
-                </div>
                 <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://reactjs.org/'>
                     <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='reactjs_logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://www.javascript.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='javascript_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
@@ -468,11 +469,7 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={svelte_logo} alt='svelte_logo' />
                   </a>
                 </div>
-                <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://threejs.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={threejs_logo} alt='threejs_logo' />
-                  </a>
-                </div>
+
                 <div className='p-2 bd-highlight  '>
                   <a target='_blank' href='https://blueprintjs.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={blueprintjs_logo} alt='blueprintjs_logo' />
@@ -488,18 +485,8 @@ function App() {
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://aws.amazon.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='amazon_web_services_logo' style={{}} />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://nextjs.org/'>
-                    <img className='my-auto tech-logo' height='50vw' src={next_js_logo} alt='next_js_logo' style={{}} />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://docs.ethers.org/v5/'>
-                    <img className='my-auto tech-logo' height='50vw' src={ethers_logo} alt='ethers_logo' style={{}} />
+                  <a target='_blank' href='https://www.java.com/en/'>
+                    <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='java_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
@@ -513,8 +500,23 @@ function App() {
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.java.com/en/'>
-                    <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='java_logo' />
+                  <a target='_blank' href='https://aws.amazon.com/'>
+                    <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='amazon_web_services_logo' style={{}} />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.postgresql.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={postgres_logo} alt='postgres_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://nextjs.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={next_js_logo} alt='next_js_logo' style={{}} />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://docs.ethers.org/v5/'>
+                    <img className='my-auto tech-logo' height='50vw' src={ethers_logo} alt='ethers_logo' style={{}} />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
@@ -530,11 +532,6 @@ function App() {
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.docker.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='docker_logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.netlify.com/'>
-                    <img className='my-auto tech-logo' height='50vw' src={netlify_logo} alt='netlify_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
@@ -833,8 +830,7 @@ function App() {
                         {project.status === "Finished & upkeeping" ? <Tag color='green'>{project.status}</Tag> : null}
                         {project.status === "Paused" ? <Tag color='purple'>{project.status}</Tag> : null}
                         {project.status === "Finished" ? <Tag color='gold'>{project.status}</Tag> : null}
-												{project.status === "In progress" ? <Tag color='blue'>{project.status}</Tag> : null}
-
+                        {project.status === "In progress" ? <Tag color='blue'>{project.status}</Tag> : null}
                       </Space>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
