@@ -72,7 +72,10 @@ import Portfolio from "./components/Portfolio.jsx";
 import IntegrityTracker from "./components/IntegrityTracker.jsx";
 
 import { Divider, Space, Tag } from "antd";
+import { inject } from "@vercel/analytics";
+
 function App() {
+  inject();
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
   const [showPortfolio, setShowPortfolio] = useState(false);
   const [showLeakShield, setShowLeakShield] = useState(false);
