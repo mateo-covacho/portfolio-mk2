@@ -22,7 +22,7 @@ import Dropdown from "react-bootstrap/Dropdown";
 import Modal from "react-bootstrap/Modal";
 import LeakShield from "./components/LeakShield";
 
-import me from "./Resources/imgs/me.jpg";
+import me from "./Resources/imgs/me_good_times.png";
 import portfolio from "./Resources/imgs/profolio.PNG";
 import leak_shield_img from "./Resources/imgs/LeakShield.png";
 import integrity_tracker_img from "./Resources/imgs/integritytracker.png";
