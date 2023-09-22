@@ -216,3 +216,14 @@ footer * {
 .red {
   background-color: var(--color1) !important;
 }
+
+.button-wrapper {
+	display: flex !important;
+	justify-content: center !important;
+	align-items: center !important;
+	text-align: center !important;
+}
+
+.button-wrapper .btn {
+	margin: 0 auto !important;
+}

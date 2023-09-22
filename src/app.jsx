@@ -253,8 +253,8 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav ps-5'>
             <Nav>
-              <a href={curriculum} target='_Blank' classname='resume-link' style={{ textDecoration: "none", color: "black" }}>
-                <Nav.Item className=' btn btn-light nav_button mx-auto align-middle resume_button'>Resume</Nav.Item>
+              <a href={curriculum} target='_blank' className=" button-wrapper">
+                <Nav.Item className=' btn btn-light nav_button mx-3 align-middle resume_button'>Resume</Nav.Item>
               </a>
               <Nav.Item
                 className=' btn btn-light nav_button mx-3 align-middle '
@@ -264,7 +264,7 @@ function App() {
               >
                 Contact
               </Nav.Item>
-              <a href='http://link.medium.com/KB6fzkFRTpb' target='_blank'>
+				     <a href='http://link.medium.com/KB6fzkFRTpb' target='_blank' className=" button-wrapper">
                 <Nav.Item className=' btn btn-light nav_button mx-3 align-middle '>Blog</Nav.Item>
               </a>
               <Nav.Item
