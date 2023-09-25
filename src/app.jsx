@@ -418,9 +418,8 @@ function App() {
             My skills.
           </h2>
           <p data-aos='fade-left' className='lead mb-5 pe-1'>
-            I am skilled in a wide range of areas and am able to quickly learn and adapt to new tools. However, my main skills lie in frontend and
-            server-side development, as I have professional experience in both. I am currently working on a personal web3 project which allows me to
-            further develop my skills.
+					I pride myself on my ability to quickly learn about topics I am interested in and my ability to find and adapt to new tools. My main skills lie in
+            server-side development, as most of my professional experience relates to backend development. I am currently working on multiple personal projects, which allows me to develop my planning and creativity just as much as my software development. 
           </p>
           <h2 data-aos='fade-left' className='display-5'>
             My favorite quality
