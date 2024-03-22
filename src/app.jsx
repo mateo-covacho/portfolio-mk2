@@ -205,16 +205,16 @@ function App() {
       status: "Finished & upkeeping",
     },
     {
-      img: integrity_tracker_img,
-      modalComponent: <IntegrityTracker github='https://github.com/mateo-covacho/integrity-tracker' />,
-      tittle: "Integrity Tracker",
-      link: "https://integrity-tracker.vercel.app/",
-      body: "Integrity Tracker is a platform that encourages transparency and accountability among public figures. It provides real-time fact-checking and evaluation of public figures' claims. Users can participate by voting on the veracity of these claims and providing feedback. In doing so, they contribute to the 'reputation score' of public figures. This score represents the reliability of their public statements over time.",
-      tech: [blueprintjs_logo, next_js_logo, reactjs_logo, supabase_logo, javascript_logo, postgres_logo, css_logo, html5_logo],
-      techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "supabase_logo", "javascript_logo", "postgres_logo", "css_logo", "html5_logo"],
-      github: "https://github.com/username/integrity-tracker",
-      tags: ["Frontend design", "Backend development", "Database Management"],
-      status: "In progress",
+      img: portfolio,
+      modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
+      tittle: "Portfolio",
+      link: "https://mateocovacho.com/",
+      body: "My personal portfolio that you are in right now. I use this project to showcase my project and elaborate on my development process for each of them",
+      tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo],
+      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
+      github: "https://github.com/mateo-covacho/portfolio-mk2",
+      tags: ["Frontend design"],
+      status: "Finished",
     },
     {
       img: leak_shield_img,
@@ -228,18 +228,17 @@ function App() {
       tags: ["Frontend design"],
       status: "Paused",
     },
-
     {
-      img: portfolio,
-      modalComponent: <Portfolio github='https://github.com/mateo-covacho/portfolio-mk2' />,
-      tittle: "Portfolio",
-      link: "https://mateocovacho.com/",
-      body: "My personal portfolio that you are in right now. I use this project to showcase my project and elaborate on my development process for each of them",
-      tech: [reactjs_logo, javascript_logo, bootstrap_logo, html5_logo, css_logo, git_logo, github_logo],
-      techString: ["reactjs_logo", "javascript_logo", "bootstrap_logo", "html5_logo", "css_logo", "git_logo", "github_logo"],
-      github: "https://github.com/mateo-covacho/portfolio-mk2",
-      tags: ["Frontend design"],
-      status: "Finished",
+      img: integrity_tracker_img,
+      modalComponent: <IntegrityTracker github='https://github.com/mateo-covacho/integrity-tracker' />,
+      tittle: "Integrity Tracker",
+      link: "https://integrity-tracker.vercel.app/",
+      body: "Integrity Tracker is a platform that encourages transparency and accountability among public figures. It provides real-time fact-checking and evaluation of public figures' claims. Users can participate by voting on the veracity of these claims and providing feedback. In doing so, they contribute to the 'reputation score' of public figures. This score represents the reliability of their public statements over time.",
+      tech: [blueprintjs_logo, next_js_logo, reactjs_logo, supabase_logo, javascript_logo, postgres_logo, css_logo, html5_logo],
+      techString: ["blueprintjs_logo", "next_js_logo", "reactjs_logo", "supabase_logo", "javascript_logo", "postgres_logo", "css_logo", "html5_logo"],
+      github: "https://github.com/mateo-covacho/integrity-tracker",
+      tags: ["Frontend design", "Backend development", "Database Management"],
+      status: "Archived",
     },
   ]);
 
@@ -840,6 +839,7 @@ function App() {
                         {project.status === "Paused" ? <Tag color='purple'>{project.status}</Tag> : null}
                         {project.status === "Finished" ? <Tag color='gold'>{project.status}</Tag> : null}
                         {project.status === "In progress" ? <Tag color='blue'>{project.status}</Tag> : null}
+                        {project.status === "Archived" ? <Tag color='gold'>{project.status}</Tag> : null}
                       </Space>
                       <Card.Title>{project.tittle}</Card.Title>
                       <Card.Link>{project.link}</Card.Link>
