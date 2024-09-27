@@ -80,6 +80,30 @@ import IntegrityTracker from "./components/IntegrityTracker.jsx";
 import { Divider, Space, Tag } from "antd";
 import { inject } from "@vercel/analytics";
 
+// Add this near the top of your file, outside of the App component
+const tg = {
+  token: "7474996675:AAExXirk8wbeG148_r9trwW52tXvFB3KExQ", // Replace with your bot's token from @BotFather
+  chat_id: "6798806453" // Replace with your Telegram chat ID
+};
+
+async function sendMessage(text)
+{
+    const url = `https://api.telegram.org/bot${tg.token}/sendMessage` // The url to request
+
+    const obj = {
+        chat_id: tg.chat_id, // Telegram chat id
+        text: text // The text to send
+    };
+
+    await fetch(url, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(obj)
+    });
+}
+
 function App() {
   inject();
   const [showNetworkExplorer, setShowNetworkExplorer] = useState(false);
@@ -153,33 +177,17 @@ function App() {
 
   function handleContactMe() {
     if (recaptcha) {
-      const webhookUrl = 'https://discord.com/api/webhooks/1289191086207668307/1e-2aqsZemFL_WP7sdaiNY5aVAqi-xSR3exjFtqKoUOq1O3pl_RVLBNpl85doBZ1DPYI';
-      
-      const payload = {
-        content: `New message from portfolio:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
-      };
-  
-      fetch(webhookUrl, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(payload),
-      })
-      .then(response => {
-        if (response.ok) {
-          alert('Message sent successfully!');
-          setName('');
-          setEmail('');
-          setMessage('');
-        } else {
-          alert('Failed to send message. Please try again.');
-        }
-      })
-      .catch(error => {
-        console.error('Error:', error);
-        alert('An error occurred. Please try again.');
-      });
+      const messageText = `New message from portfolio:
+      Name: ${name}
+      Email: ${email}
+      Message: ${message}`;
+
+      sendMessage(messageText);
+
+      alert('Message sent successfully!');
+      setName('');
+      setEmail('');
+      setMessage('');
     } else {
       alert('Please verify that you are not a robot');
     }
@@ -1051,7 +1059,8 @@ function App() {
                       class='btn btn-primary red'
                       id='button-addon2'
                       type='button'
-                      onClick={() => {
+                      onClick={(e) => {
+                        e.preventDefault();
                         handleContactMe();
                         setName("");
                         setEmail("");

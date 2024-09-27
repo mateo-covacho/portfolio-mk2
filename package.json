@@ -12,6 +12,7 @@
     "antd": "^5.3.3",
     "aos": "^2.3.4",
     "bootstrap": "^5.2.0",
+    "discord.js": "^14.16.2",
     "leva": "^0.9.30",
     "react": "^18.2.0",
     "react-bootstrap": "^2.4.0",
