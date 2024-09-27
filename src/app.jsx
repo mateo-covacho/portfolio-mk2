@@ -57,6 +57,13 @@ import ethers_logo from "./Resources/logos/back/ethersjs-icon.svg";
 import next_js_logo from "./Resources/logos/back/next-js.svg";
 import amazon_web_services_logo from "./Resources/logos/back/awslogo.svg";
 
+import rust_logo from "./Resources/logos/back/rust_logo.svg";
+import cairo_lang_logo from "./Resources/logos/back/cairo_lang_logo.svg";
+import dojoengine_logo from "./Resources/logos/back/dojoengine_logo.svg";
+import nix_logo from "./Resources/logos/back/nix_logo.svg";
+import neovim_logo from "./Resources/logos/back/neovim_logo.svg";
+
+
 import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
 import github_logo from "./Resources/logos/dev/github.png";
 import npm_logo from "./Resources/logos/dev/npmjs-ar21.svg";
@@ -483,6 +490,11 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={blueprintjs_logo} alt='blueprintjs_logo' />
                   </a>
                 </div>
+                <div className='p-2 bd-highlight  '>
+                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
+                    <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='figma_logo' />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -492,6 +504,26 @@ function App() {
               <h5 className='card-title'>Tech I use for building fast and scalable backend applications</h5>
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.rust-lang.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={rust_logo} alt='rust_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://cairo-lang.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={cairo_lang_logo} alt='cairo_lang_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.dojoengine.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={dojoengine_logo} alt='dojoengine_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://nixos.org/'>
+                    <img className='my-auto tech-logo' height='50vw' src={nix_logo} alt='nix_logo' />
+                  </a>
+                </div>
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://www.java.com/en/'>
                     <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='java_logo' />
@@ -558,14 +590,15 @@ function App() {
                 These are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster
               </p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
+
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://neovim.io/'>
+                    <img className='my-auto tech-logo' height='50vw' src={neovim_logo} alt='git_logo' />
+                  </a>
+                </div>
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://git-scm.com/'>
                     <img className='my-auto tech-logo' height='50vw' src={git_logo} alt='git_logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
-                    <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='figma_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
