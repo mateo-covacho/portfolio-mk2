@@ -6,7 +6,6 @@ import { MdEmail } from "react-icons/md";
 
 import Aos from "aos";
 import "aos/dist/aos.css";
-import emailjs from "@emailjs/browser";
 import curriculum from "./Resources/Mateo_Covacho_resume.pdf";
 import { useAutoAnimate } from "@formkit/auto-animate/react";
 
@@ -151,23 +150,43 @@ function App() {
       return showIntegrityTracker;
     }
   }
+
   function handleContactMe() {
     if (recaptcha) {
-      emailjs.send(
-        "service_ykrrk11",
-        "template_wu19pwn",
-        {
-          from_name: name,
-          subject: "Email from " + name + "",
-          message: message,
-          reply_to_email: email,
+      const webhookUrl = 'https://discord.com/api/webhooks/1289191086207668307/1e-2aqsZemFL_WP7sdaiNY5aVAqi-xSR3exjFtqKoUOq1O3pl_RVLBNpl85doBZ1DPYI';
+      
+      const payload = {
+        content: `New message from portfolio:\nName: ${name}\nEmail: ${email}\nMessage: ${message}`
+      };
+  
+      fetch(webhookUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
         },
-        "_QHH4FdyK5NUWXsNK"
-      );
+        body: JSON.stringify(payload),
+      })
+      .then(response => {
+        if (response.ok) {
+          alert('Message sent successfully!');
+          setName('');
+          setEmail('');
+          setMessage('');
+        } else {
+          alert('Failed to send message. Please try again.');
+        }
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
     } else {
-      alert("Please verify that you are not a robot");
+      alert('Please verify that you are not a robot');
     }
   }
+  
+  // 3. Update any error handling or success messages as needed.
+  // 4. Ensure you have the necessary CORS settings if your website's domain differs from where the Discord webhook is hosted.
 
   function onChange(value) {
     console.log("Captcha value:", value);
@@ -259,7 +278,7 @@ function App() {
           <Navbar.Toggle aria-controls='basic-navbar-nav' />
           <Navbar.Collapse id='basic-navbar-nav ps-5'>
             <Nav>
-              <a href={curriculum} target='_blank' className=" button-wrapper">
+              <a href={curriculum} target='_blank' className=" button-wrapper" rel="noreferrer">
                 <Nav.Item className=' btn btn-light nav_button mx-3 align-middle resume_button'>Resume</Nav.Item>
               </a>
               <Nav.Item
@@ -270,7 +289,7 @@ function App() {
               >
                 Contact
               </Nav.Item>
-				     <a href='http://link.medium.com/KB6fzkFRTpb' target='_blank' className=" button-wrapper">
+				     <a href='http://link.medium.com/KB6fzkFRTpb' target='_blank' className=" button-wrapper" rel="noreferrer">
                 <Nav.Item className=' btn btn-light nav_button mx-3 align-middle '>Blog</Nav.Item>
               </a>
               <Nav.Item
@@ -300,27 +319,27 @@ function App() {
             </Nav>
             <Nav pullright className='px-5 ms-auto'>
               <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
-                <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com'>
+                <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com' rel="noreferrer">
                   <MdEmail size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
               <Nav.Item className='p-2 d-flex justify-content-center' eventkey={1} href='#'>
-                <a target='_blank' classname='m-auto' href='https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/'>
+                <a target='_blank' classname='m-auto' href='https://www.linkedin.com/in/mateo-covacho-berrocal-35a039224/' rel="noreferrer">
                   <BsLinkedin size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
               <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
-                <a target='_blank' classname='m-auto' href='https://twitter.com/covacho_dev'>
+                <a target='_blank' classname='m-auto' href='https://twitter.com/covacho_dev' rel="noreferrer">
                   <BsTwitter size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
               <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
-                <a target='_blank' classname='m-auto' href='https://stackoverflow.com/users/18017427/mateo-covacho'>
+                <a target='_blank' classname='m-auto' href='https://stackoverflow.com/users/18017427/mateo-covacho' rel="noreferrer">
                   <BsStackOverflow size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
               <Nav.Item className='p-2 d-flex justify-content-center' eventkey={2} href='#'>
-                <a target='_blank' classname='m-auto' href='https://github.com/mateo-covacho'>
+                <a target='_blank' classname='m-auto' href='https://github.com/mateo-covacho' rel="noreferrer">
                   <BsGithub size={20} className='blacktext mosepointer' />
                 </a>
               </Nav.Item>
@@ -450,48 +469,48 @@ function App() {
               <p className='card-text '>These are some of the technologies I use to design & build responsive web applications.</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.typescriptlang.org/'>
+                  <a target='_blank' href='https://www.typescriptlang.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={typescript_logo} alt='typescript_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://www.javascript.com/'>
+                  <a target='_blank' href='https://www.javascript.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={javascript_logo} alt='javascript_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
+                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={html5_logo} alt='html5_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://www.w3.org/Style/CSS/Overview.en.html'>
+                  <a target='_blank' href='https://www.w3.org/Style/CSS/Overview.en.html' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={css_logo} alt='css_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://reactjs.org/'>
+                  <a target='_blank' href='https://reactjs.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={reactjs_logo} alt='reactjs_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://getbootstrap.com/'>
+                  <a target='_blank' href='https://getbootstrap.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={bootstrap_logo} alt='bootstrap_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://svelte.dev/'>
+                  <a target='_blank' href='https://svelte.dev/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={svelte_logo} alt='svelte_logo' />
                   </a>
                 </div>
 
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://blueprintjs.com/'>
+                  <a target='_blank' href='https://blueprintjs.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={blueprintjs_logo} alt='blueprintjs_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight  '>
-                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML'>
+                  <a target='_blank' href='https://developer.mozilla.org/en-US/docs/Web/HTML' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={figma_logo} alt='figma_logo' />
                   </a>
                 </div>
@@ -505,77 +524,77 @@ function App() {
               <p className='card-text'>These are, but not limited to, the tech I use for building fast, scalable and flexible backend applications</p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.rust-lang.org/'>
+                  <a target='_blank' href='https://www.rust-lang.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={rust_logo} alt='rust_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://cairo-lang.org/'>
+                  <a target='_blank' href='https://cairo-lang.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={cairo_lang_logo} alt='cairo_lang_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.dojoengine.org/'>
+                  <a target='_blank' href='https://www.dojoengine.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={dojoengine_logo} alt='dojoengine_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://nixos.org/'>
+                  <a target='_blank' href='https://nixos.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={nix_logo} alt='nix_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.java.com/en/'>
+                  <a target='_blank' href='https://www.java.com/en/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={java_logo} alt='java_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://nodejs.org/en/'>
+                  <a target='_blank' href='https://nodejs.org/en/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={nodejs_logo} alt='nodejs_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.python.org/'>
+                  <a target='_blank' href='https://www.python.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={python_logo} alt='python_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://aws.amazon.com/'>
+                  <a target='_blank' href='https://aws.amazon.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={amazon_web_services_logo} alt='amazon_web_services_logo' style={{}} />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.postgresql.org/'>
+                  <a target='_blank' href='https://www.postgresql.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={postgres_logo} alt='postgres_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://nextjs.org/'>
+                  <a target='_blank' href='https://nextjs.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={next_js_logo} alt='next_js_logo' style={{}} />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://docs.ethers.org/v5/'>
+                  <a target='_blank' href='https://docs.ethers.org/v5/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={ethers_logo} alt='ethers_logo' style={{}} />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://firebase.google.com/'>
+                  <a target='_blank' href='https://firebase.google.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={firebase_logo} alt='firebase_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.serverless.com/'>
+                  <a target='_blank' href='https://www.serverless.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={serverless_logo} alt='serverless_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.docker.com/'>
+                  <a target='_blank' href='https://www.docker.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={docker_logo} alt='docker_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://vercel.com/'>
+                  <a target='_blank' href='https://vercel.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='vercel_logo' />
                   </a>
                 </div>
@@ -592,32 +611,32 @@ function App() {
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
 
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://neovim.io/'>
+                  <a target='_blank' href='https://neovim.io/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={neovim_logo} alt='git_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://git-scm.com/'>
+                  <a target='_blank' href='https://git-scm.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={git_logo} alt='git_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.npmjs.com/'>
+                  <a target='_blank' href='https://www.npmjs.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={npm_logo} alt='npm_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://github.com/'>
+                  <a target='_blank' href='https://github.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={github_logo} alt='github_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://code.visualstudio.com/'>
+                  <a target='_blank' href='https://code.visualstudio.com/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={vscode_logo} alt='vscode_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.gnu.org/software/bash/'>
+                  <a target='_blank' href='https://www.gnu.org/software/bash/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={bash_logo} alt='bash_logo' />
                   </a>
                 </div>
@@ -903,14 +922,14 @@ function App() {
                         <div className='row'>{project.tittle}</div>
                         <br />
                         <div className='row'>
-                          <a padding='p-0' style={{ paddingRight: "0px" }} target='_blank' href={project.link}>
+                          <a padding='p-0' style={{ paddingRight: "0px" }} target='_blank' href={project.link} rel="noreferrer">
                             {project.link}
                           </a>
                         </div>
                         <br />
 
                         <div className='row'>
-                          <a padding='p-0' style={{ paddingRight: "0px" }} target='_blank' href={project.github}>
+                          <a padding='p-0' style={{ paddingRight: "0px" }} target='_blank' href={project.github} rel="noreferrer">
                             {project.github}
                           </a>
                         </div>
@@ -967,7 +986,7 @@ function App() {
                 <h5 class='text-white mb-3'>Quick links</h5>
                 <ul class='list-unstyled '>
                   <li>
-                    <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com'>
+                    <a target='_blank' classname='m-auto' href='mailto: mateocovacho@gmail.com' rel="noreferrer">
                       Mail
                     </a>
                   </li>
