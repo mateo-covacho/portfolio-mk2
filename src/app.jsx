@@ -61,6 +61,7 @@ import cairo_lang_logo from "./Resources/logos/back/cairo_lang_logo.svg";
 import dojoengine_logo from "./Resources/logos/back/dojoengine_logo.svg";
 import nix_logo from "./Resources/logos/back/nix_logo.svg";
 import neovim_logo from "./Resources/logos/back/neovim_logo.svg";
+import zellij_logo from "./Resources/logos/dev/zellij_logo.png";
 
 
 import git_logo from "./Resources/logos/dev/git-scm-icon.svg";
@@ -537,16 +538,6 @@ function App() {
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://cairo-lang.org/' rel="noreferrer">
-                    <img className='my-auto tech-logo' height='50vw' src={cairo_lang_logo} alt='cairo_lang_logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
-                  <a target='_blank' href='https://www.dojoengine.org/' rel="noreferrer">
-                    <img className='my-auto tech-logo' height='50vw' src={dojoengine_logo} alt='dojoengine_logo' />
-                  </a>
-                </div>
-                <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://nixos.org/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={nix_logo} alt='nix_logo' />
                   </a>
@@ -606,6 +597,16 @@ function App() {
                     <img className='my-auto tech-logo' height='50vw' src={vercel_logo} alt='vercel_logo' />
                   </a>
                 </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://cairo-lang.org/' rel="noreferrer">
+                    <img className='my-auto tech-logo' height='50vw' src={cairo_lang_logo} alt='cairo_lang_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://www.dojoengine.org/' rel="noreferrer">
+                    <img className='my-auto tech-logo' height='50vw' src={dojoengine_logo} alt='dojoengine_logo' />
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -617,10 +618,14 @@ function App() {
                 These are the technologies I use to facilitate my work building CI/CD pipelines, helping me write code faster
               </p>
               <div className='d-flex flex-wrap bd-highlight mb-0 align-items-end'>
-
                 <div className='p-2 bd-highlight'>
                   <a target='_blank' href='https://neovim.io/' rel="noreferrer">
                     <img className='my-auto tech-logo' height='50vw' src={neovim_logo} alt='git_logo' />
+                  </a>
+                </div>
+                <div className='p-2 bd-highlight'>
+                  <a target='_blank' href='https://zellij.dev/' rel="noreferrer">
+                    <img className='my-auto tech-logo' height='50vw' src={zellij_logo} alt='git_logo' />
                   </a>
                 </div>
                 <div className='p-2 bd-highlight'>
